@@ -1,0 +1,488 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Record View Page: CH06SR_17
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../skins/arkologik/stylesheets/colorbox.css" type="text/css" rel="stylesheet" />
+  <link href="../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script src="../lib/js/jquery.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/jquery-ui.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/php.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/jquery.colorbox.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/ol3/ol.js" type="text/javascript">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../js/js_functions.js">
+  </script>
+  <script src="../js/js_functions.js" type="text/javascript">
+  </script>
+  <script src="../js/livesearch.js" type="text/javascript">
+  </script>
+  <script src="../js/common.js" type="text/javascript">
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_mcrview">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <!-- header tools -->
+    <div id="hdr-tools">
+     <!-- version number -->
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../micro_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../micro_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <!-- search box -->
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- main navigation bar -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../user_home.html">
+        home
+       </a>
+      </li>
+      <li id="active">
+       <a href="../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li>
+       <a href="../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <h1>
+     Micro View Forms
+    </h1>
+    <ul class="module_list" id="mvlpmodlist">
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Context" class="med" />
+      </a>
+      <label>
+       Contexts
+      </label>
+      <a href="../search/key/1/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Context" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Group" class="med" />
+      </a>
+      <label>
+       Context Groups
+      </label>
+      <a href="../search/key/16/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Group" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Special Find" class="med" />
+      </a>
+      <label>
+       Special Finds
+      </label>
+      <a href="../search/key/11/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Special Find" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Sample" class="med" />
+      </a>
+      <label>
+       Samples
+      </label>
+      <a href="../search/key/9/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Sample" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Microwear Record" class="med" />
+      </a>
+      <label>
+       Microwear Records
+      </label>
+      <a href="../search/key/19/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Microwear Record" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Skeletal Remain" class="med" />
+      </a>
+      <label>
+       Skeletal Remains
+      </label>
+      <a href="../search/key/20/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Skeletal Remain" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Drawing" class="med" />
+      </a>
+      <label>
+       Drawings
+      </label>
+      <a href="../search/key/17/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Drawing" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Site Photo" class="med" />
+      </a>
+      <label>
+       Site Photos
+      </label>
+      <a href="../search/key/3/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Site Photo" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Geophoto" class="med" />
+      </a>
+      <label>
+       GeoPhoto Codes
+      </label>
+      <a href="../search/key/12/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Geophoto" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Topo Surface" class="med" />
+      </a>
+      <label>
+       Topo Surfaces
+      </label>
+      <a href="../search/key/18/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Topo Surface" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a PMP" class="med" />
+      </a>
+      <label>
+       PMPs
+      </label>
+      <a href="../search/key/15/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search PMP" class="med" />
+      </a>
+     </li>
+    </ul>
+   </div>
+   <!-- MAIN CONTENT (IN COLUMNS) -->
+   <div id="main" class="main_mcrview">
+    <div id="record_nav" class="record_nav">
+     <div id="record_upper">
+      <div class="record_upper_left">
+       <div id="WPLink">
+        <a href="../ https://chersonesos.la.utexas.edu.html" target="_blank">
+         Search linked Wordpress for this item
+        </a>
+       </div>
+       <div id="record_jumper">
+        <div id="itemval_jumper">
+         <form method="get" id="select_itemval" action="/chersonesos/ark/micro_view.php">
+          <fieldset>
+           <label>
+            PMP
+           </label>
+           <script>
+            $(document).ready( function() {
+                    console.log('loading');
+                    $.getJSON(
+                        'https://ica.tacc.utexas.edu/chersonesos/ark/itemlist/pmp_cd',
+                        function(availablekeys) {
+                            $( "#jumper_input" ).autocomplete({
+                              source: availablekeys["itemkeys"],
+                              select: function( event, ui ) {
+                                window.location.href = 'https://n2t.net/ark:/87610/t66h2r/pmp_cd/' + ui.item.value;
+                              }
+                            })  
+                        }
+                    ).fail(function(jqxhr, textStatus, error ) {
+                        var err = textStatus + ", " + error;
+                        console.log( "Request Failed: " + err )
+                    })
+                  });
+           </script>
+           <input id="jumper_input" type="text" name="pmp_cd" value="" />
+           <input type="hidden" name="item_key" value="pmp_cd" />
+          </fieldset>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div id="record_lower">
+      <div id="permalink">
+       <span>
+        <label>
+         Archival Resource Key:
+        </label>
+        <a href="http://n2t.net/ark:/87610/t66h2r/pmp_cd/CH06SR_17">
+         ark:/87610/t66h2r/pmp_cd/CH06SR_17
+        </a>
+       </span>
+      </div>
+      <ul id="record_nav">
+       <li class="current">
+        CH06SR
+       </li>
+       <li class="current">
+        17
+       </li>
+      </ul>
+      <ul id="record_refresh">
+       <li>
+        <a href="../micro_view.html" class="refresh" title="Refresh">
+         &nbsp;
+        </a>
+       </li>
+      </ul>
+      <ul id="record_admin">
+      </ul>
+     </div>
+    </div>
+    <div id="column-main_column" class="primary_col">
+     <div id="pmp_display" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        PhotoModeler Projects
+       </h4>
+      </div>
+      <ul>
+       <li class="file_thumbs">
+        <a href="../data/files//webthumb_7642.jpg" class="imagebox" title="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/photomodels_orthophotos/master/pmp_CH06SR_17_m.pdf">
+         <img src="../data/files/arkthumb_7642.jpg" alt="file_image" />
+        </a>
+        <a href="http://web.corral.tacc.utexas.edu/ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/photomodels_orthophotos/master/pmp_CH06SR_17_m.pdf" alt="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/photomodels_orthophotos/master/pmp_CH06SR_17_m.pdf">
+         <img src="../skins/arkologik/images/results/download_sml.png" alt="[Download]" title="Download" class="med" />
+        </a>
+       </li>
+       <li class="file_thumbs">
+        <a href="../data/files//webthumb_7643.jpg" class="imagebox" title="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/photomodels_orthophotos/master/pmp_CH06SR_17_o_m.tif">
+         <img src="../data/files/arkthumb_7643.jpg" alt="file_image" />
+        </a>
+        <a href="http://web.corral.tacc.utexas.edu/ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/photomodels_orthophotos/master/pmp_CH06SR_17_o_m.tif" alt="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/photomodels_orthophotos/master/pmp_CH06SR_17_o_m.tif">
+         <img src="../skins/arkologik/images/results/download_sml.png" alt="[Download]" title="Download" class="med" />
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div id="pmp_img_desc" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Description
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Description
+        </label>
+        <span class="data">
+         Surface
+        </span>
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+      </ul>
+     </div>
+     <div id="cxt_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked Contexts
+       </h4>
+      </div>
+      <ul id="existing-cxt" class="xmi_list">
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_792.html">
+          CH06SR_792
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_792" class="xmi_field">
+         <li>
+          <span class="data">
+           Light brownish grey soil with inclusions of clay and small stones, also there were few oval form flat stones, ceramic, bones, charcoals.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_999.html">
+          CH06SR_999
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_999" class="xmi_field">
+         <li>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div id="column-second_column" class="secondary_col">
+     <div id="pmpmodel_events" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Events
+       </h4>
+      </div>
+      <ul id="events" class="hz_list">
+       <li>
+        <h5>
+         Photographed By
+        </h5>
+        <span class="data">
+         GK
+        </span>
+       </li>
+       <li>
+        <h5>
+         Modeler
+        </h5>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           WFD
+          </li>
+         </ul>
+        </span>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- end MAIN -->
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../micro_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../micro_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end WRAPPER -->
+  </div>
+ </body>
+</html>

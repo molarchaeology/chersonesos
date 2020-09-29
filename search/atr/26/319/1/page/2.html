@@ -1,0 +1,1674 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Search Page
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../../../../../../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../../../../../../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../../../../../../skins/arkologik/stylesheets/lightbox.css" type="text/css" rel="stylesheet" />
+  <link href="../../../../../../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="../../../../../../lib/js/ol3/ol.css" />
+  <link rel="stylesheet" href="../../../../../../skins/arkologik/stylesheets/map_view.css" />
+  <link rel="stylesheet" href="../../../../../../skins/arkologik/stylesheets/colorbox.css" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="../../../../../../lib/js/jquery-ui.js">
+  </script>
+  <script type="text/javascript" src="../../../../../../lib/js/php.js">
+  </script>
+  <script type="text/javascript" src="../../../../../../lib/js/jquery.colorbox.js">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../../../../../../js/js_functions.js">
+  </script>
+  <script type="text/javascript" src="../../../../../../js/common.js">
+  </script>
+  <script type="text/javascript" src="../../../../../../js/livesearch.js">
+  </script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+            // drawer toggle script
+            $(".dr_toggle").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+            $("ul#ftr_options .save").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+        });
+
+        $(window).load(function(){
+            // set heights in left panel
+            var main_ht = $("#main").height();
+            var lpanel_ht = $("#lpanel").height();
+            var largest_child = 0;
+            $('#lpanel').children().each(function() {
+                var ht = $(this).height();
+                if (ht > largest_child) {
+                    largest_child = ht;
+                };
+            });
+            var largest = max(main_ht, largest_child, lpanel_ht);
+            console.log ("largest: " + largest);
+            // set all the heights to the same thing
+            $('#lpanel').children().each(function() {
+                $(this).height(largest);
+            });
+            $('#lpanel').height(largest);
+            $('#main').height(largest);
+        });
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_results">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../../../../../../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <a href="../../../../../../user_home.html">
+     <!-- &lt;img src="skins/arkologik/images/logo.png" alt="logo"  /&gt; -->
+    </a>
+    <div id="hdr-tools">
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../../../../../../data_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../../../../../../data_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../../../../../../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../../../../../../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- DYNAMIC NAVIGATION -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../../../../../../user_home.html">
+        home
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li id="active">
+       <a href="../../../../../../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <div id="filter_panel">
+     <h1>
+      Search
+     </h1>
+     <ul id="ftr_options">
+      <li>
+       <a href="../../../../../../data_view.html" class="clear_ftr" title="Clear all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../data_view.html" class="refresh" title="Rerun all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../overlay_holder.html" class="save" title="Save filter set">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Filters
+      </h4>
+     </div>
+     <ul id="active_filters">
+      <li class="active_filter">
+       <label>
+        Area -
+       </label>
+       <label>
+        Courtyard
+       </label>
+       <br />
+       <span class="del_op">
+        <a href="../../../../../../data_view.html">
+         <img src="../../../../../../skins/arkologik/images/plusminus/bigminus.png" alt="[-]" class="med" />
+        </a>
+       </span>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Records
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/1/all.html">
+         Contexts
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/16/all.html">
+         Context Groups
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/3/all.html">
+         Site Photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/7/2.html">
+         People
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/9/all.html">
+         Samples
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/11/all.html">
+         Special Finds
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/12/all.html">
+         Geo-photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/15/all.html">
+         Photo Modeller Project Records
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/17/all.html">
+         Drawings
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/18/all.html">
+         Topo Surfaces
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/19/all.html">
+         Microwear Analysis
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/key/20/all.html">
+         Skeletal Remains
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Criteria
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/54/fauxdex.html">
+         Find Class
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/16/fauxdex.html">
+         Find Material
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/8/fauxdex.html">
+         Period
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/26/fauxdex.html">
+         Area (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/25/fauxdex.html">
+         Room (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/13/fauxdex.html">
+         Phase (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/14/fauxdex.html">
+         Sample Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/34/fauxdex.html">
+         Faunal Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/49/fauxdex.html">
+         Bird Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/50/fauxdex.html">
+         Fish Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../../search/atr/21/fauxdex.html">
+         Plant Species
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div id="ftr_mode_nav">
+      <a href="../../../../../../data_view.html">
+       Advanced options
+      </a>
+     </div>
+    </div>
+    <div id="drawer_1" class="dr">
+     <h1>
+      Save/Saved
+      <a href="../../../../../../#.html" class="dr_toggle">
+       [&lt;&lt;]
+      </a>
+     </h1>
+     <ul>
+      <li id="save_ftr">
+       <label>
+        save
+       </label>
+       <form method="get" action="/chersonesos/ark/data_view.php">
+        <input type="hidden" name="submiss_serial" value="" />
+        <input type="hidden" name="output_mode" value="table" />
+        <input type="hidden" name="saveftr" value="set" />
+        <span>
+         <span class="input">
+          <input type="text" name="nname" value="" style="width:35%" />
+         </span>
+         <span class="input">
+          <button type="submit">
+           save
+          </button>
+         </span>
+        </span>
+       </form>
+      </li>
+     </ul>
+     <div id="dvlp_saved_filters" class="saved_ftr">
+     </div>
+    </div>
+   </div>
+   <!-- THE MAIN AREA -->
+   <div id="main" class="main_results">
+    <div id="results_nav">
+     <label>
+      table
+     </label>
+     <ul id="tools">
+      <li>
+       <a href="../../../../../../overlay_holder.html" class="gears colorbox" title="Configure Fields">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_views">
+      <li>
+       <a href="../../../../../../data_view.html" class="text" title="View as Text">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../data_view.html" class="table" title="View as Table">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../data_view.html" class="thumb" title="View as Thumbnails">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../data_view.html" class="map" title="View as Map">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../../resultsmicro_view.html" class="printall" title="View Full Records (Print View)" target="mywin">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_feeds">
+      <li>
+       <a href="../../../../../../overlay_holder.html" class=" colorbox" title="RSS">
+        RSS
+       </a>
+      </li>
+     </ul>
+     <ul id="result_downloads">
+      <li>
+       <a href="../../../../../../overlay_holder.html" class=" colorbox" title="Export to CSV">
+        CSV
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="result_tbl">
+     <table class="result_tbl">
+      <th>
+       <a href="../../../../../../data_view.html">
+        Context
+       </a>
+      </th>
+      <th>
+       <a href="../../../../../../data_view.html">
+        Context Type
+       </a>
+      </th>
+      <th>
+       <a href="../../../../../../data_view.html">
+        Definition
+       </a>
+      </th>
+      <th>
+       <a href="../../../../../../data_view.html">
+        Excavator
+       </a>
+      </th>
+      <th>
+       <a href="../../../../../../data_view.html">
+        Verified by
+       </a>
+      </th>
+      <th>
+       Options
+      </th>
+      <tr id="cxt_cd_CH04SR_426" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_426.html" class="itemkey_link">
+          CH04SR_426
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Layer of tile collapse in NW area of courtyard 1
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_426.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH04SR_430" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_430.html" class="itemkey_link">
+          CH04SR_430
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Negative
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cut of pit in room 37
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           CS
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_430.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH04SR_431" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_431.html" class="itemkey_link">
+          CH04SR_431
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Fill of pit in room 37
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           CS
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_431.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH04SR_437" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_437.html" class="itemkey_link">
+          CH04SR_437
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Wall
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         wide late NW-SE wall running through room 37 (former NW end of yard 1)
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_437.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH04SR_441" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_441.html" class="itemkey_link">
+          CH04SR_441
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Compact fill in west part of pit (SR431)
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_441.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH04SR_442" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_442.html" class="itemkey_link">
+          CH04SR_442
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Compact light brown fill in east part of pit (SR431)
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_442.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH04SR_447" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH04SR_447.html" class="itemkey_link">
+          CH04SR_447
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Bottom of fill in pit in room 37 and between paving slabs
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           DVD
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH04SR_447.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_430" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_430.html" class="itemkey_link">
+          CH05SR_430
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Negative
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cut for pit in room 37
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           ATR
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         ATR
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_430.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_507" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_507.html" class="itemkey_link">
+          CH05SR_507
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Fill of the pit in courtyard ( NW side )
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_507.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_509" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_509.html" class="itemkey_link">
+          CH05SR_509
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Latest surface of  courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_509.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_511" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_511.html" class="itemkey_link">
+          CH05SR_511
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Fill of the well in NW side of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           DVD
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_511.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_517" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_517.html" class="itemkey_link">
+          CH05SR_517
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Stone collapse without earth in the well in NW side of the courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           DVD
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_517.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_520" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_520.html" class="itemkey_link">
+          CH05SR_520
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Fill of stones with grayish-brown wet soil in the well
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           DVD
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_520.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_522" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_522.html" class="itemkey_link">
+          CH05SR_522
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Black ashy soil in south section of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_522.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_523" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_523.html" class="itemkey_link">
+          CH05SR_523
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Negative
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cistern/Well in NW side of church courtyard.
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           DVD
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_523.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_524" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_524.html" class="itemkey_link">
+          CH05SR_524
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Black ashy soil in west section of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_524.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_525" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_525.html" class="itemkey_link">
+          CH05SR_525
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Large area of black ashy soil in center of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_525.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_526" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_526.html" class="itemkey_link">
+          CH05SR_526
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Reddish soil SE of Context 525 in courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_526.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_527" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_527.html" class="itemkey_link">
+          CH05SR_527
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Black ashy soil in east section of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_527.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_530" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_530.html" class="itemkey_link">
+          CH05SR_530
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Dark ashy soil in NE section of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_530.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_532" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_532.html" class="itemkey_link">
+          CH05SR_532
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Stone positioned by the door between courtyard and room 32
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_532.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_538" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_538.html" class="itemkey_link">
+          CH05SR_538
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Orangish-brown soil in Courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_538.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_541" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_541.html" class="itemkey_link">
+          CH05SR_541
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Black ashy soil in western section courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_541.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_544" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_544.html" class="itemkey_link">
+          CH05SR_544
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Negative
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cut filled by context 522 in south section of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_544.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_545" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../../cxt_cd/CH05SR_545.html" class="itemkey_link">
+          CH05SR_545
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Negative
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cut of context 524 in west section of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           SM
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../../cxt_cd/CH05SR_545.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../../../data_entry.html">
+          <img src="../../../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div id="paging_nav">
+     <ul class="pag_list">
+      <li class="pag_list">
+       <a href="../../../../../../search/atr/26/319/1/page/1.html">
+        1
+       </a>
+      </li>
+      <li class="cur_pag">
+       <a href="../../../../../../search/atr/26/319/1/page/2.html">
+        2
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../../../search/atr/26/319/1/page/3.html">
+        3
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../../../search/atr/26/319/1/page/4.html">
+        4
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../../../search/atr/26/319/1/page/5.html">
+        5
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../../../search/atr/26/319/1/page/3.html">
+        &rsaquo;
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../../../search/atr/26/319/1/page/9.html">
+        &raquo;
+       </a>
+      </li>
+     </ul>
+     <span class="info">
+      Total Pages: &nbsp;9
+     </span>
+     <span class="info">
+      Total Results: &nbsp;204
+     </span>
+     <a href="../../../../../../search/atr/26/319/1/all.html">
+      <button type="submit">
+       view all
+      </button>
+     </a>
+     <form method="get" id="perpage_selector" action="/chersonesos/ark/data_view.php">
+      <fieldset>
+       <label for="perpage">
+        Number of rows per page:
+       </label>
+       <input type="text" name="perpage" value="25" class="perpage" />
+       <button type="submit">
+        go
+       </button>
+      </fieldset>
+     </form>
+    </div>
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../../../../../../data_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../../../../../../data_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../../../../../../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end content WRAPPER -->
+  </div>
+  <div class="editpanel">
+   <div id="edit_field_conf_field_desc_brief" class="edit_field_colorbox">
+    Editing Definition for
+    <div class="edit_field_itemkeys">
+    </div>
+    <form action="" method="POST">
+     <input type="hidden" value="" name="multi_edit_itemvalues" class="multi_edit_itemkeys" />
+     <input type="hidden" value="update_multi" name="update_db" />
+     <input type="hidden" value="" name="submiss_serial" />
+     <input type="hidden" value="conf_field_desc_brief" name="field" />
+     <textarea id="desc_brief" name="desc_brief" rows="5" cols="12">
+     </textarea>
+     <input type="hidden" name="desc_brief_qtype" value="add" />
+     <button>
+      submit
+     </button>
+    </form>
+   </div>
+  </div>
+  <script>
+   var fields = ['conf_field_desc_brief'];console.log('conf_mac_table');
+  </script>
+  <script>
+   var fieldAlias = ['Definition'];
+  </script>
+  <script type="text/javascript" src="../../../../../../js/multi_edit.js">
+  </script>
+ </body>
+</html>

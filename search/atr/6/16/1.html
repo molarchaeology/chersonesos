@@ -1,0 +1,1801 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Search Page
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../../../../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../../../../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../../../../skins/arkologik/stylesheets/lightbox.css" type="text/css" rel="stylesheet" />
+  <link href="../../../../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="../../../../lib/js/ol3/ol.css" />
+  <link rel="stylesheet" href="../../../../skins/arkologik/stylesheets/map_view.css" />
+  <link rel="stylesheet" href="../../../../skins/arkologik/stylesheets/colorbox.css" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="../../../../lib/js/jquery-ui.js">
+  </script>
+  <script type="text/javascript" src="../../../../lib/js/php.js">
+  </script>
+  <script type="text/javascript" src="../../../../lib/js/jquery.colorbox.js">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../../../../js/js_functions.js">
+  </script>
+  <script type="text/javascript" src="../../../../js/common.js">
+  </script>
+  <script type="text/javascript" src="../../../../js/livesearch.js">
+  </script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+            // drawer toggle script
+            $(".dr_toggle").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+            $("ul#ftr_options .save").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+        });
+
+        $(window).load(function(){
+            // set heights in left panel
+            var main_ht = $("#main").height();
+            var lpanel_ht = $("#lpanel").height();
+            var largest_child = 0;
+            $('#lpanel').children().each(function() {
+                var ht = $(this).height();
+                if (ht > largest_child) {
+                    largest_child = ht;
+                };
+            });
+            var largest = max(main_ht, largest_child, lpanel_ht);
+            console.log ("largest: " + largest);
+            // set all the heights to the same thing
+            $('#lpanel').children().each(function() {
+                $(this).height(largest);
+            });
+            $('#lpanel').height(largest);
+            $('#main').height(largest);
+        });
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_results">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../../../../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <a href="../../../../user_home.html">
+     <!-- &lt;img src="skins/arkologik/images/logo.png" alt="logo"  /&gt; -->
+    </a>
+    <div id="hdr-tools">
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../../../../data_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../../../../data_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../../../../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../../../../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- DYNAMIC NAVIGATION -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../../../../user_home.html">
+        home
+       </a>
+      </li>
+      <li>
+       <a href="../../../../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li id="active">
+       <a href="../../../../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../../../../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <div id="filter_panel">
+     <h1>
+      Search
+     </h1>
+     <ul id="ftr_options">
+      <li>
+       <a href="../../../../data_view.html" class="clear_ftr" title="Clear all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="refresh" title="Rerun all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../overlay_holder.html" class="save" title="Save filter set">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Filters
+      </h4>
+     </div>
+     <ul id="active_filters">
+      <li class="active_filter">
+       <label>
+        Preservation -
+       </label>
+       <label>
+        Excellent
+       </label>
+       <br />
+       <span class="del_op">
+        <a href="../../../../data_view.html">
+         <img src="../../../../skins/arkologik/images/plusminus/bigminus.png" alt="[-]" class="med" />
+        </a>
+       </span>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Records
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../search/key/1/all.html">
+         Contexts
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/16/all.html">
+         Context Groups
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/3/all.html">
+         Site Photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/7/2.html">
+         People
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/9/all.html">
+         Samples
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/11/all.html">
+         Special Finds
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/12/all.html">
+         Geo-photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/15/all.html">
+         Photo Modeller Project Records
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/17/all.html">
+         Drawings
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/18/all.html">
+         Topo Surfaces
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/19/all.html">
+         Microwear Analysis
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/20/all.html">
+         Skeletal Remains
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Criteria
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../search/atr/54/fauxdex.html">
+         Find Class
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/16/fauxdex.html">
+         Find Material
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/8/fauxdex.html">
+         Period
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/26/fauxdex.html">
+         Area (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/25/fauxdex.html">
+         Room (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/13/fauxdex.html">
+         Phase (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/14/fauxdex.html">
+         Sample Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/34/fauxdex.html">
+         Faunal Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/49/fauxdex.html">
+         Bird Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/50/fauxdex.html">
+         Fish Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/21/fauxdex.html">
+         Plant Species
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div id="ftr_mode_nav">
+      <a href="../../../../data_view.html">
+       Advanced options
+      </a>
+     </div>
+    </div>
+    <div id="drawer_1" class="dr">
+     <h1>
+      Save/Saved
+      <a href="../../../../#.html" class="dr_toggle">
+       [&lt;&lt;]
+      </a>
+     </h1>
+     <ul>
+      <li id="save_ftr">
+       <label>
+        save
+       </label>
+       <form method="get" action="/chersonesos/ark/data_view.php">
+        <input type="hidden" name="submiss_serial" value="" />
+        <input type="hidden" name="output_mode" value="table" />
+        <input type="hidden" name="saveftr" value="set" />
+        <span>
+         <span class="input">
+          <input type="text" name="nname" value="" style="width:35%" />
+         </span>
+         <span class="input">
+          <button type="submit">
+           save
+          </button>
+         </span>
+        </span>
+       </form>
+      </li>
+     </ul>
+     <div id="dvlp_saved_filters" class="saved_ftr">
+     </div>
+    </div>
+   </div>
+   <!-- THE MAIN AREA -->
+   <div id="main" class="main_results">
+    <div id="results_nav">
+     <label>
+      table
+     </label>
+     <ul id="tools">
+      <li>
+       <a href="../../../../overlay_holder.html" class="gears colorbox" title="Configure Fields">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_views">
+      <li>
+       <a href="../../../../data_view.html" class="text" title="View as Text">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="table" title="View as Table">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="thumb" title="View as Thumbnails">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="map" title="View as Map">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../resultsmicro_view.html" class="printall" title="View Full Records (Print View)" target="mywin">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_feeds">
+      <li>
+       <a href="../../../../overlay_holder.html" class=" colorbox" title="RSS">
+        RSS
+       </a>
+      </li>
+     </ul>
+     <ul id="result_downloads">
+      <li>
+       <a href="../../../../overlay_holder.html" class=" colorbox" title="Export to CSV">
+        CSV
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="result_tbl">
+     <table class="result_tbl">
+      <th>
+       <a href="../../../../data_view.html">
+        Context
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Context Type
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Definition
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Excavator
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Verified by
+       </a>
+      </th>
+      <th>
+       Options
+      </th>
+      <tr id="cxt_cd_CH05SR_595" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../cxt_cd/CH05SR_595.html" class="itemkey_link">
+          CH05SR_595
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Positive
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Concentration of pebbles and tiles next to N corner of room 38
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           IG
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../cxt_cd/CH05SR_595.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="cxt_cd_CH05SR_608" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../cxt_cd/CH05SR_608.html" class="itemkey_link">
+          CH05SR_608
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Negative
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cut in north corner of room 38
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           IG
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../cxt_cd/CH05SR_608.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+     </table>
+     <table class="result_tbl">
+      <th>
+       <a href="../../../../data_view.html">
+        Special Find
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Short Description
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Material
+       </a>
+      </th>
+      <th>
+       Context
+      </th>
+      <th>
+       Options
+      </th>
+      <tr id="sfi_cd_CH04SR_2102" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2102.html" class="itemkey_link">
+          CH04SR_2102
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Fragment  of a nail
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_338.html" class="itemkey_link">
+            CH04SR_338
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2102.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2127" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2127.html" class="itemkey_link">
+          CH04SR_2127
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron object with bronze nail
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/143/1.html">
+          Iron/Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_336.html" class="itemkey_link">
+            CH04SR_336
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2127.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2131" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2131.html" class="itemkey_link">
+          CH04SR_2131
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tube/Cylinder
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/142/1.html">
+          Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_341.html" class="itemkey_link">
+            CH04SR_341
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2131.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2190" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2190.html" class="itemkey_link">
+          CH04SR_2190
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         bronze object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/142/1.html">
+          Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_352.html" class="itemkey_link">
+            CH04SR_352
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2190.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2210" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2210.html" class="itemkey_link">
+          CH04SR_2210
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         lead band
+        </span>
+       </td>
+       <td>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_362.html" class="itemkey_link">
+            CH04SR_362
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2210.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2214" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2214.html" class="itemkey_link">
+          CH04SR_2214
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         iron object (tool frag ?)
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_369.html" class="itemkey_link">
+            CH04SR_369
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2214.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2217" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2217.html" class="itemkey_link">
+          CH04SR_2217
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         tool frag
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_352.html" class="itemkey_link">
+            CH04SR_352
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2217.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2236" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2236.html" class="itemkey_link">
+          CH04SR_2236
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Bronze object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/142/1.html">
+          Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_369.html" class="itemkey_link">
+            CH04SR_369
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2236.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2260" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2260.html" class="itemkey_link">
+          CH04SR_2260
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_385.html" class="itemkey_link">
+            CH04SR_385
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2260.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2281" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2281.html" class="itemkey_link">
+          CH04SR_2281
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Whetstone
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/146/1.html">
+          Stone
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_362.html" class="itemkey_link">
+            CH04SR_362
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2281.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2283" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2283.html" class="itemkey_link">
+          CH04SR_2283
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/142/1.html">
+          Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_362.html" class="itemkey_link">
+            CH04SR_362
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2283.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2332" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2332.html" class="itemkey_link">
+          CH04SR_2332
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_402.html" class="itemkey_link">
+            CH04SR_402
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2332.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2347" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2347.html" class="itemkey_link">
+          CH04SR_2347
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         arch frag w/plaster
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/146/1.html">
+          Stone
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_373.html" class="itemkey_link">
+            CH04SR_373
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2347.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2372" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2372.html" class="itemkey_link">
+          CH04SR_2372
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         bronze button or rock
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/142/1.html">
+          Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_414.html" class="itemkey_link">
+            CH04SR_414
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2372.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2393" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2393.html" class="itemkey_link">
+          CH04SR_2393
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         latch/strap object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_425.html" class="itemkey_link">
+            CH04SR_425
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2393.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2400" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2400.html" class="itemkey_link">
+          CH04SR_2400
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         iron object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_425.html" class="itemkey_link">
+            CH04SR_425
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2400.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2412" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2412.html" class="itemkey_link">
+          CH04SR_2412
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_424.html" class="itemkey_link">
+            CH04SR_424
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2412.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2435" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2435.html" class="itemkey_link">
+          CH04SR_2435
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Fragment
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_424.html" class="itemkey_link">
+            CH04SR_424
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2435.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2466" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2466.html" class="itemkey_link">
+          CH04SR_2466
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_410.html" class="itemkey_link">
+            CH04SR_410
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2466.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2492" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2492.html" class="itemkey_link">
+          CH04SR_2492
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_410.html" class="itemkey_link">
+            CH04SR_410
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2492.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2495" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2495.html" class="itemkey_link">
+          CH04SR_2495
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron key
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_410.html" class="itemkey_link">
+            CH04SR_410
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2495.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2519" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2519.html" class="itemkey_link">
+          CH04SR_2519
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Iron object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/141/1.html">
+          Iron
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_410.html" class="itemkey_link">
+            CH04SR_410
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2519.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sfi_cd_CH04SR_2536" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sfi_cd/CH04SR_2536.html" class="itemkey_link">
+          CH04SR_2536
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Object
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <a href="../../../../search/atr/16/142/1.html">
+          Bronze
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         <ul>
+          <li>
+           <a href="../../../../cxt_cd/CH04SR_414.html" class="itemkey_link">
+            CH04SR_414
+           </a>
+          </li>
+         </ul>
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sfi_cd/CH04SR_2536.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+         <a href="../../../../data_entry.html">
+          <img src="../../../../skins/arkologik/images/plusminus/detailed.png" alt="enter" class="med" title="Enter Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div id="paging_nav">
+     <ul class="pag_list">
+      <li class="cur_pag">
+       <a href="../../../../search/atr/6/16/1/page/1.html">
+        1
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/atr/6/16/1/page/2.html">
+        2
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/atr/6/16/1/page/3.html">
+        3
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/atr/6/16/1/page/4.html">
+        4
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/atr/6/16/1/page/5.html">
+        5
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/atr/6/16/1/page/2.html">
+        &rsaquo;
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/atr/6/16/1/page/13.html">
+        &raquo;
+       </a>
+      </li>
+     </ul>
+     <span class="info">
+      Total Pages: &nbsp;13
+     </span>
+     <span class="info">
+      Total Results: &nbsp;302
+     </span>
+     <a href="../../../../search/atr/6/16/1/all.html">
+      <button type="submit">
+       view all
+      </button>
+     </a>
+     <form method="get" id="perpage_selector" action="/chersonesos/ark/data_view.php">
+      <fieldset>
+       <label for="perpage">
+        Number of rows per page:
+       </label>
+       <input type="text" name="perpage" value="25" class="perpage" />
+       <button type="submit">
+        go
+       </button>
+      </fieldset>
+     </form>
+    </div>
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../../../../data_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../../../../data_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../../../../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end content WRAPPER -->
+  </div>
+  <div class="editpanel">
+   <div id="edit_field_conf_field_short_desc" class="edit_field_colorbox">
+    Editing Short Description for
+    <div class="edit_field_itemkeys">
+    </div>
+    <form action="" method="POST">
+     <input type="hidden" value="" name="multi_edit_itemvalues" class="multi_edit_itemkeys" />
+     <input type="hidden" value="update_multi" name="update_db" />
+     <input type="hidden" value="" name="submiss_serial" />
+     <input type="hidden" value="conf_field_short_desc" name="field" />
+     <textarea id="short_desc" name="short_desc" rows="5" cols="12">
+     </textarea>
+     <input type="hidden" name="short_desc_qtype" value="add" />
+     <button>
+      submit
+     </button>
+    </form>
+   </div>
+   <div id="edit_field_conf_field_material" class="edit_field_colorbox">
+    Editing Material for
+    <div class="edit_field_itemkeys">
+    </div>
+    <form action="" method="POST">
+     <input type="hidden" value="" name="multi_edit_itemvalues" class="multi_edit_itemkeys" />
+     <input type="hidden" value="update_multi" name="update_db" />
+     <input type="hidden" value="" name="submiss_serial" />
+     <input type="hidden" value="conf_field_material" name="field" />
+     <input type="hidden" name="material_bv" value="1" />
+     <select name="material">
+      <option value="">
+       ---select---
+      </option>
+      <option value="377">
+       Bone
+      </option>
+      <option value="157">
+       Bone/Metal
+      </option>
+      <option value="142">
+       Bronze
+      </option>
+      <option value="144">
+       Carbon
+      </option>
+      <option value="147">
+       Ceramic
+      </option>
+      <option value="145">
+       Clay
+      </option>
+      <option value="156">
+       Copper
+      </option>
+      <option value="154">
+       Flint
+      </option>
+      <option value="323">
+       Glass
+      </option>
+      <option value="149">
+       Gold
+      </option>
+      <option value="155">
+       Horn
+      </option>
+      <option value="141">
+       Iron
+      </option>
+      <option value="143">
+       Iron/Bronze
+      </option>
+      <option value="159">
+       Ivory
+      </option>
+      <option value="153">
+       Lead
+      </option>
+      <option value="374">
+       Marble
+      </option>
+      <option value="150">
+       Mineral
+      </option>
+      <option value="151">
+       Pasta Vitrea
+      </option>
+      <option value="158">
+       Pumice
+      </option>
+      <option value="148">
+       Semi-Precious Stone
+      </option>
+      <option value="146">
+       Stone
+      </option>
+      <option value="152">
+       Wood
+      </option>
+     </select>
+     <input type="hidden" name="material_qtype" value="add" />
+     <button>
+      submit
+     </button>
+    </form>
+   </div>
+  </div>
+  <script>
+   var fields = ['conf_field_short_desc','conf_field_material'];console.log('conf_mac_table');
+  </script>
+  <script>
+   var fieldAlias = ['Short Description','Material'];
+  </script>
+  <script type="text/javascript" src="../../../../js/multi_edit.js">
+  </script>
+ </body>
+</html>

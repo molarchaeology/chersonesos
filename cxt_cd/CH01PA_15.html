@@ -1,0 +1,4572 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Record View Page: CH01PA_15
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../skins/arkologik/stylesheets/colorbox.css" type="text/css" rel="stylesheet" />
+  <link href="../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script src="../lib/js/jquery.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/jquery-ui.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/php.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/jquery.colorbox.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/ol3/ol.js" type="text/javascript">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../js/js_functions.js">
+  </script>
+  <script src="../js/js_functions.js" type="text/javascript">
+  </script>
+  <script src="../js/livesearch.js" type="text/javascript">
+  </script>
+  <script src="../js/common.js" type="text/javascript">
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_mcrview">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <!-- header tools -->
+    <div id="hdr-tools">
+     <!-- version number -->
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../micro_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../micro_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <!-- search box -->
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- main navigation bar -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../user_home.html">
+        home
+       </a>
+      </li>
+      <li id="active">
+       <a href="../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li>
+       <a href="../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <h1>
+     Micro View Forms
+    </h1>
+    <ul class="module_list" id="mvlpmodlist">
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Context" class="med" />
+      </a>
+      <label>
+       Contexts
+      </label>
+      <a href="../search/key/1/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Context" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Group" class="med" />
+      </a>
+      <label>
+       Context Groups
+      </label>
+      <a href="../search/key/16/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Group" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Special Find" class="med" />
+      </a>
+      <label>
+       Special Finds
+      </label>
+      <a href="../search/key/11/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Special Find" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Sample" class="med" />
+      </a>
+      <label>
+       Samples
+      </label>
+      <a href="../search/key/9/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Sample" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Microwear Record" class="med" />
+      </a>
+      <label>
+       Microwear Records
+      </label>
+      <a href="../search/key/19/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Microwear Record" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Skeletal Remain" class="med" />
+      </a>
+      <label>
+       Skeletal Remains
+      </label>
+      <a href="../search/key/20/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Skeletal Remain" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Drawing" class="med" />
+      </a>
+      <label>
+       Drawings
+      </label>
+      <a href="../search/key/17/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Drawing" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Site Photo" class="med" />
+      </a>
+      <label>
+       Site Photos
+      </label>
+      <a href="../search/key/3/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Site Photo" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Geophoto" class="med" />
+      </a>
+      <label>
+       GeoPhoto Codes
+      </label>
+      <a href="../search/key/12/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Geophoto" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Topo Surface" class="med" />
+      </a>
+      <label>
+       Topo Surfaces
+      </label>
+      <a href="../search/key/18/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Topo Surface" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a PMP" class="med" />
+      </a>
+      <label>
+       PMPs
+      </label>
+      <a href="../search/key/15/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search PMP" class="med" />
+      </a>
+     </li>
+    </ul>
+   </div>
+   <!-- MAIN CONTENT (IN COLUMNS) -->
+   <div id="main" class="main_mcrview">
+    <div id="record_nav" class="record_nav">
+     <div id="record_upper">
+      <div class="record_upper_left">
+       <div id="WPLink">
+        <a href="../ https://chersonesos.la.utexas.edu.html" target="_blank">
+         Search linked Wordpress for this item
+        </a>
+       </div>
+       <div id="record_jumper">
+        <div id="itemval_jumper">
+         <form method="get" id="select_itemval" action="/chersonesos/ark/micro_view.php">
+          <fieldset>
+           <label>
+            Context
+           </label>
+           <script>
+            $(document).ready( function() {
+                    console.log('loading');
+                    $.getJSON(
+                        'https://ica.tacc.utexas.edu/chersonesos/ark/itemlist/cxt_cd',
+                        function(availablekeys) {
+                            $( "#jumper_input" ).autocomplete({
+                              source: availablekeys["itemkeys"],
+                              select: function( event, ui ) {
+                                window.location.href = 'https://n2t.net/ark:/87610/t66h2r/cxt_cd/' + ui.item.value;
+                              }
+                            })  
+                        }
+                    ).fail(function(jqxhr, textStatus, error ) {
+                        var err = textStatus + ", " + error;
+                        console.log( "Request Failed: " + err )
+                    })
+                  });
+           </script>
+           <input id="jumper_input" type="text" name="cxt_cd" value="" />
+           <input type="hidden" name="item_key" value="cxt_cd" />
+          </fieldset>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div id="record_lower">
+      <div id="permalink">
+       <span>
+        <label>
+         Archival Resource Key:
+        </label>
+        <a href="http://n2t.net/ark:/87610/t66h2r/cxt_cd/CH01PA_15">
+         ark:/87610/t66h2r/cxt_cd/CH01PA_15
+        </a>
+       </span>
+      </div>
+      <ul id="record_nav">
+       <li>
+        <a href="../cxt_cd/CH01PA_14.html" class="chevrons">
+         &lt;&lt;
+        </a>
+       </li>
+       <li class="current">
+        CH01PA
+       </li>
+       <li class="current">
+        15
+       </li>
+       <li class="current">
+        Positive
+       </li>
+       <li>
+        <a href="../cxt_cd/CH01PA_16.html" class="chevrons">
+         &gt;&gt;
+        </a>
+       </li>
+      </ul>
+      <ul id="record_refresh">
+       <li>
+        <a href="../micro_view.html" class="refresh" title="Refresh">
+         &nbsp;
+        </a>
+       </li>
+      </ul>
+      <ul id="record_admin">
+      </ul>
+     </div>
+    </div>
+    <div id="column-main_column" class="primary_col">
+     <div id="cxt_descframe_frame" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Description
+       </h4>
+      </div>
+      <div id="cxt_su_description" class="frm_subform">
+       <ul>
+        <li class="row">
+         <label class="form_label">
+          Old Context Code
+         </label>
+         <span class="data">
+          CH01USCHPA15
+         </span>
+        </li>
+        <li class="row">
+         <label class="form_label">
+          Definition
+         </label>
+         <span class="data">
+          Crollo di pietre interno al Vano 21
+         </span>
+        </li>
+        <li class="row">
+         <label class="form_label">
+          Description
+         </label>
+         <span class="data">
+          Strato di pietre calcaree e terreno distribuito nell'intera area del vano. L'US e caratterizzata da pietre, non lavorate, di grandi e medie dimensioni e di forma irregolare che denotano una superficie dello strato molto irregolare ed accidentato. Le pietre sono mescolate a terreno sabbioso, friabile e di colore grigio. L'US ha restituito numerosi frr. Di laterizi (solo tegole), frr. Ceramici e ossa animali. Il margine di definizione con le US sottostanti e netto. L'US ha restituito anche un blocco di forma irregolare (cm 30x25) fratturato in antico e caratterizzato su una delle facce dalla presenza di un incavo quadrangolare (cm 13x15), poco profondo (cm 8). Si tratta forse di un elemento architettonico (SF658) funzionale probabilmente all'allogiamento di una trave lignea.
+         </span>
+        </li>
+        <li style="display:none">
+         &nbsp;
+        </li>
+        <li style="display:none">
+         &nbsp;
+        </li>
+       </ul>
+      </div>
+      <div id="colour" class="frm_subform">
+       <ul class="field_list">
+        <li style="display:none">
+         &nbsp;
+        </li>
+       </ul>
+      </div>
+      <div id="room" class="frm_subform">
+       <ul class="field_list">
+        <li class="row">
+         <label class="form_label">
+          Room
+         </label>
+         <span class="data">
+          <ul class="attr_list">
+           <li>
+            <a href="../search/atr/25/537/1.html">
+             21b
+            </a>
+            <a target="_blank" href="../concept/attribute/537.html">
+             <img src="../skins/arkologik/images/plusminus/help_over.png" alt="info" />
+            </a>
+           </li>
+          </ul>
+         </span>
+        </li>
+        <li class="row">
+         <label class="form_label">
+          Area
+         </label>
+         <span class="data">
+          <ul class="attr_list">
+           <li>
+            <a href="../search/atr/26/536/1.html">
+             Complex 1
+            </a>
+            <a target="_blank" href="../concept/attribute/536.html">
+             <img src="../skins/arkologik/images/plusminus/help_over.png" alt="info" />
+            </a>
+           </li>
+          </ul>
+         </span>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div id="cxt_stratframe_frame" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Matrix
+       </h4>
+      </div>
+      <div id="matrix" class="frm_subform">
+       <ul class="matrix_rows">
+        <li>
+         <ul id="later_tvects" class="matrix_row">
+          <li class="lthn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/later_than_first.png)">
+           <a class="ltr" href="../cxt_cd/CH01PA_1.html">
+            CH01PA_1
+           </a>
+           <p class="ltr">
+            Covers
+           </p>
+          </li>
+          <li class="lthn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/later_than_last.png)">
+           <a class="ltr" href="../cxt_cd/CH02PA_182.html">
+            CH02PA_182
+           </a>
+           <p class="ltr">
+            Cuts
+           </p>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <ul class="matrix_row">
+          <li class="middle">
+           <a href="../#.html">
+            CH01PA_15
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <ul id="earlier_tvects" class="matrix_row">
+          <li class="ethn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/earlier_than_first.png)">
+           <p class="erl">
+            Covers
+           </p>
+           <a href="../cxt_cd/CH01PA_128.html" class="erl">
+            CH01PA_128
+           </a>
+          </li>
+          <li class="ethn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/earlier_than_middle.png)">
+           <p class="erl">
+            Covers
+           </p>
+           <a href="../cxt_cd/CH01PA_137.html" class="erl">
+            CH01PA_137
+           </a>
+          </li>
+          <li class="ethn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/earlier_than_middle.png)">
+           <p class="erl">
+            Covers
+           </p>
+           <a href="../cxt_cd/CH01PA_138.html" class="erl">
+            CH01PA_138
+           </a>
+          </li>
+          <li class="ethn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/earlier_than_middle.png)">
+           <p class="erl">
+            Covers
+           </p>
+           <a href="../cxt_cd/CH01PA_139.html" class="erl">
+            CH01PA_139
+           </a>
+          </li>
+          <li class="ethn" style="background-image: url(/chersonesos/ark//skins/arkologik/images/matrix/earlier_than_last.png)">
+           <p class="erl">
+            Same As
+           </p>
+           <a href="../cxt_cd/CH01PA_69.html" class="erl">
+            CH01PA_69
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </div>
+      <div id="cxt_other_matrix" class="frm_subform">
+       <ul id="fields" class="hz_list">
+        <li class="row">
+         <h5>
+          Same As
+         </h5>
+         <p>
+          None linked.
+         </p>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div id="cxt_interp" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Interpretation
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         &nbsp;
+        </label>
+        <span class="data">
+         No Interpretation
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="finds" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Finds
+       </h4>
+      </div>
+      <ul class="field_list">
+       <li style="display:none">
+        &nbsp;
+       </li>
+      </ul>
+     </div>
+     <div id="formationtype" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Formation Processes
+       </h4>
+      </div>
+      <ul class="field_list">
+       <li style="display:none">
+        &nbsp;
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+      </ul>
+     </div>
+     <div id="faunal_ass_frame" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Faunal Assemblage
+       </h4>
+      </div>
+      <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.js">
+      </script>
+      <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.pie.js">
+      </script>
+      <div id="div-faunal_ass" class="frm_subform">
+       <h5>
+        Total = 662
+       </h5>
+       <div>
+        <label class="form_label">
+         Faunal Species
+        </label>
+        <table class="assemblage">
+         <tr>
+          <th>
+          </th>
+          <th>
+           Total
+          </th>
+         </tr>
+         <tr>
+          <td>
+           Unidentifiable
+          </td>
+          <td>
+           101
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Wild Boar
+          </td>
+          <td>
+           3
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Domestic Pig
+          </td>
+          <td>
+           23
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Fish
+          </td>
+          <td>
+           7
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Bird
+          </td>
+          <td>
+           14
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Domestic Cattle
+          </td>
+          <td>
+           234
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Dog
+          </td>
+          <td>
+           6
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Domestic Goat
+          </td>
+          <td>
+           7
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Cockle family
+          </td>
+          <td>
+           1
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Catfish
+          </td>
+          <td>
+           1
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Red Deer
+          </td>
+          <td>
+           4
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Crab
+          </td>
+          <td>
+           1
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Horse
+          </td>
+          <td>
+           1
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Brown Hare
+          </td>
+          <td>
+           1
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Mussels
+          </td>
+          <td>
+           4
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Oyster
+          </td>
+          <td>
+           69
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Domestic Sheep
+          </td>
+          <td>
+           30
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Domestic Sheep/Goat
+          </td>
+          <td>
+           155
+          </td>
+         </tr>
+        </table>
+        <script type="text/javascript">
+         jQuery(document).ready(function () {
+                                        var data = [{label: "Unidentifiable", data: 101},{label: "Wild Boar", data: 3},{label: "Domestic Pig", data: 23},{label: "Fish", data: 7},{label: "Bird", data: 14},{label: "Domestic Cattle", data: 234},{label: "Dog", data: 6},{label: "Domestic Goat", data: 7},{label: "Cockle family", data: 1},{label: "Catfish", data: 1},{label: "Red Deer", data: 4},{label: "Crab", data: 1},{label: "Horse", data: 1},{label: "Brown Hare", data: 1},{label: "Mussels", data: 4},{label: "Oyster", data: 69},{label: "Domestic Sheep", data: 30},{label: "Domestic Sheep/Goat", data: 155},];
+                                        jQuery.plot(jQuery("#chart34"), data, {
+                                             series: {
+                                                pie: {
+                                                    show: true,
+                                                    combine: {
+                                                        color: '#999',
+                                                        threshold: 0.1
+                                                    }
+                                                }
+                                             },
+                                             legend: {
+                                                show: false
+                                             },
+                                        });
+                                    });
+        </script>
+        <div id="chart34" style="width:400px; height:250px">
+        </div>
+       </div>
+      </div>
+      <div id="div-arch_asm" class="frm_subform">
+       <script src="../lib/js/jquery.tablesorter.min.js">
+       </script>
+       <script src="../lib/js/jquery.tablesorter.widget-editable.js">
+       </script>
+       <table id="arch_asm_table" class="sortable">
+        <colgroup>
+         <col class="attribute" />
+         <col class="attribute" />
+         <col class="attribute" />
+         <col class="number" />
+        </colgroup>
+        <thead>
+         <tr>
+          <th id="conf_field_faunalspecies">
+           Faunal Species
+          </th>
+          <th id="conf_field_faunalpart">
+           Part
+          </th>
+          <th id="conf_field_faunal_sex">
+           Sex
+          </th>
+          <th id="conf_field_faunal_count">
+           Faunal Count
+          </th>
+         </tr>
+        </thead>
+        <tr id="number-165971-row">
+         <td id="arch_asm_table-cell-attribute-221640">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221640" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221639">
+          <span class="data">
+           <a href="../search/atr/35/459/1.html">
+            Vertebrae
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221639" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165971">
+          <span class="data">
+           27
+          </span>
+          <input type="hidden" name="number_id" value="165971" />
+         </td>
+        </tr>
+        <tr id="number-165969-row">
+         <td id="arch_asm_table-cell-attribute-221636">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221636" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221635">
+          <span class="data">
+           <a href="../search/atr/35/494/1.html">
+            Upper Teeth
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221635" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165969">
+          <span class="data">
+           9
+          </span>
+          <input type="hidden" name="number_id" value="165969" />
+         </td>
+        </tr>
+        <tr id="number-165967-row">
+         <td id="arch_asm_table-cell-attribute-221631">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221631" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221632">
+          <span class="data">
+           <a href="../search/atr/35/468/1.html">
+            Ulna
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221632" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165967">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="165967" />
+         </td>
+        </tr>
+        <tr id="number-165965-row">
+         <td id="arch_asm_table-cell-attribute-221627">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221627" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221628">
+          <span class="data">
+           <a href="../search/atr/35/500/1.html">
+            Tibia Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221628" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165965">
+          <span class="data">
+           9
+          </span>
+          <input type="hidden" name="number_id" value="165965" />
+         </td>
+        </tr>
+        <tr id="number-165961-row">
+         <td id="arch_asm_table-cell-attribute-221619">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221619" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221620">
+          <span class="data">
+           <a href="../search/atr/35/493/1.html">
+            Skull Facial Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221620" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165961">
+          <span class="data">
+           8
+          </span>
+          <input type="hidden" name="number_id" value="165961" />
+         </td>
+        </tr>
+        <tr id="number-165959-row">
+         <td id="arch_asm_table-cell-attribute-221615">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221615" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221616">
+          <span class="data">
+           <a href="../search/atr/35/492/1.html">
+            Skull Brain Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221616" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165959">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="165959" />
+         </td>
+        </tr>
+        <tr id="number-165957-row">
+         <td id="arch_asm_table-cell-attribute-221611">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221611" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221612">
+          <span class="data">
+           <a href="../search/atr/35/489/1.html">
+            Second Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221612" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165957">
+          1
+          <input type="hidden" name="number_id" value="165957" />
+         </td>
+        </tr>
+        <tr id="number-165956-row">
+         <td id="arch_asm_table-cell-attribute-221610">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221610" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221609">
+          <span class="data">
+           <a href="../search/atr/35/461/1.html">
+            Scapula
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221609" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165956">
+          <span class="data">
+           4
+          </span>
+          <input type="hidden" name="number_id" value="165956" />
+         </td>
+        </tr>
+        <tr id="number-165954-row">
+         <td id="arch_asm_table-cell-attribute-221605">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221605" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221606">
+          <span class="data">
+           <a href="../search/atr/35/460/1.html">
+            Ribs
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221606" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165954">
+          <span class="data">
+           20
+          </span>
+          <input type="hidden" name="number_id" value="165954" />
+         </td>
+        </tr>
+        <tr id="number-165952-row">
+         <td id="arch_asm_table-cell-attribute-221601">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221601" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221602">
+          <span class="data">
+           <a href="../search/atr/35/508/1.html">
+            Radius Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221602" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165952">
+          <span class="data">
+           7
+          </span>
+          <input type="hidden" name="number_id" value="165952" />
+         </td>
+        </tr>
+        <tr id="number-165949-row">
+         <td id="arch_asm_table-cell-attribute-221596">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221596" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221595">
+          <span class="data">
+           <a href="../search/atr/35/473/1.html">
+            Pelvis
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221595" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165949">
+          2
+          <input type="hidden" name="number_id" value="165949" />
+         </td>
+        </tr>
+        <tr id="number-165948-row">
+         <td id="arch_asm_table-cell-attribute-221594">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221594" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221593">
+          <span class="data">
+           <a href="../search/atr/35/507/1.html">
+            Mtc Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221593" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165948">
+          <span class="data">
+           4
+          </span>
+          <input type="hidden" name="number_id" value="165948" />
+         </td>
+        </tr>
+        <tr id="number-165946-row">
+         <td id="arch_asm_table-cell-attribute-221590">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221590" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221589">
+          <span class="data">
+           <a href="../search/atr/35/469/1.html">
+            MtcWhole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221589" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165946">
+          <span class="data">
+           12
+          </span>
+          <input type="hidden" name="number_id" value="165946" />
+         </td>
+        </tr>
+        <tr id="number-165943-row">
+         <td id="arch_asm_table-cell-attribute-221584">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221584" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221583">
+          <span class="data">
+           <a href="../search/atr/35/487/1.html">
+            Mpp
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221583" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165943">
+          <span class="data">
+           4
+          </span>
+          <input type="hidden" name="number_id" value="165943" />
+         </td>
+        </tr>
+        <tr id="number-165941-row">
+         <td id="arch_asm_table-cell-attribute-221580">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221580" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221579">
+          <span class="data">
+           <a href="../search/atr/35/496/1.html">
+            Lower Teeth
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221579" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165941">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="165941" />
+         </td>
+        </tr>
+        <tr id="number-165939-row">
+         <td id="arch_asm_table-cell-attribute-221576">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221576" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221575">
+          <span class="data">
+           <a href="../search/atr/35/495/1.html">
+            Lower Jaw
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221575" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165939">
+          <span class="data">
+           20
+          </span>
+          <input type="hidden" name="number_id" value="165939" />
+         </td>
+        </tr>
+        <tr id="number-165937-row">
+         <td id="arch_asm_table-cell-attribute-221571">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221571" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221572">
+          <span class="data">
+           <a href="../search/atr/35/503/1.html">
+            Humerus Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221572" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165937">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="165937" />
+         </td>
+        </tr>
+        <tr id="number-165935-row">
+         <td id="arch_asm_table-cell-attribute-221567">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221567" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221568">
+          <span class="data">
+           <a href="../search/atr/35/488/1.html">
+            First Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221568" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165935">
+          <span class="data">
+           2
+          </span>
+          <input type="hidden" name="number_id" value="165935" />
+         </td>
+        </tr>
+        <tr id="number-165933-row">
+         <td id="arch_asm_table-cell-attribute-221564">
+          <span class="data">
+           <a href="../search/atr/34/418/1.html">
+            Domestic Sheep/Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221564" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-221563">
+          <span class="data">
+           <a href="../search/atr/35/504/1.html">
+            Femur Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="221563" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-165933">
+          <span class="data">
+           8
+          </span>
+          <input type="hidden" name="number_id" value="165933" />
+         </td>
+        </tr>
+        <tr id="number-164862-row">
+         <td id="arch_asm_table-cell-attribute-219168">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219168" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219167">
+          <span class="data">
+           <a href="../search/atr/35/459/1.html">
+            Vertebrae
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219167" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164862">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="164862" />
+         </td>
+        </tr>
+        <tr id="number-164860-row">
+         <td id="arch_asm_table-cell-attribute-219163">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219163" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219164">
+          <span class="data">
+           <a href="../search/atr/35/500/1.html">
+            Tibia Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219164" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164860">
+          1
+          <input type="hidden" name="number_id" value="164860" />
+         </td>
+        </tr>
+        <tr id="number-164859-row">
+         <td id="arch_asm_table-cell-attribute-219161">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219161" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219162">
+          <span class="data">
+           <a href="../search/atr/35/492/1.html">
+            Skull Brain Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219162" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164859">
+          1
+          <input type="hidden" name="number_id" value="164859" />
+         </td>
+        </tr>
+        <tr id="number-164858-row">
+         <td id="arch_asm_table-cell-attribute-219159">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219159" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219160">
+          <span class="data">
+           <a href="../search/atr/35/508/1.html">
+            Radius Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219160" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164858">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="164858" />
+         </td>
+        </tr>
+        <tr id="number-164856-row">
+         <td id="arch_asm_table-cell-attribute-219156">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219156" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219155">
+          <span class="data">
+           <a href="../search/atr/35/473/1.html">
+            Pelvis
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219155" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164856">
+          2
+          <input type="hidden" name="number_id" value="164856" />
+         </td>
+        </tr>
+        <tr id="number-164855-row">
+         <td id="arch_asm_table-cell-attribute-219154">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219154" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219153">
+          <span class="data">
+           <a href="../search/atr/35/507/1.html">
+            Mtc Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219153" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164855">
+          <span class="data">
+           10
+          </span>
+          <input type="hidden" name="number_id" value="164855" />
+         </td>
+        </tr>
+        <tr id="number-164853-row">
+         <td id="arch_asm_table-cell-attribute-219149">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219149" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219150">
+          <span class="data">
+           <a href="../search/atr/35/469/1.html">
+            MtcWhole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219150" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164853">
+          <span class="data">
+           2
+          </span>
+          <input type="hidden" name="number_id" value="164853" />
+         </td>
+        </tr>
+        <tr id="number-164851-row">
+         <td id="arch_asm_table-cell-attribute-219145">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219145" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219146">
+          <span class="data">
+           <a href="../search/atr/35/503/1.html">
+            Humerus Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219146" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164851">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="164851" />
+         </td>
+        </tr>
+        <tr id="number-164849-row">
+         <td id="arch_asm_table-cell-attribute-219140">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219140" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219141">
+          <span class="data">
+           <a href="../search/atr/35/491/1.html">
+            Horn core
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219141" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219142">
+          <span class="data">
+           <a href="../search/atr/37/521/1.html">
+            Male
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219142" />
+         </td>
+         <td id="arch_asm_table-cell-number-164849">
+          1
+          <input type="hidden" name="number_id" value="164849" />
+         </td>
+        </tr>
+        <tr id="number-164848-row">
+         <td id="arch_asm_table-cell-attribute-219138">
+          <span class="data">
+           <a href="../search/atr/34/416/1.html">
+            Domestic Sheep
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219138" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-219139">
+          <span class="data">
+           <a href="../search/atr/35/488/1.html">
+            First Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="219139" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164848">
+          2
+          <input type="hidden" name="number_id" value="164848" />
+         </td>
+        </tr>
+        <tr id="number-164456-row">
+         <td id="arch_asm_table-cell-attribute-218664">
+          <span class="data">
+           <a href="../search/atr/34/426/1.html">
+            Oyster
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="218664" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164456">
+          <span class="data">
+           69
+          </span>
+          <input type="hidden" name="number_id" value="164456" />
+         </td>
+        </tr>
+        <tr id="number-164238-row">
+         <td id="arch_asm_table-cell-attribute-218446">
+          <span class="data">
+           <a href="../search/atr/34/425/1.html">
+            Mussels
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="218446" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164238">
+          4
+          <input type="hidden" name="number_id" value="164238" />
+         </td>
+        </tr>
+        <tr id="number-164139-row">
+         <td id="arch_asm_table-cell-attribute-218303">
+          <span class="data">
+           <a href="../search/atr/34/432/1.html">
+            Brown Hare
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="218303" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-218302">
+          <span class="data">
+           <a href="../search/atr/35/504/1.html">
+            Femur Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="218302" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-164139">
+          1
+          <input type="hidden" name="number_id" value="164139" />
+         </td>
+        </tr>
+        <tr id="number-163893-row">
+         <td id="arch_asm_table-cell-attribute-217884">
+          <span class="data">
+           <a href="../search/atr/34/420/1.html">
+            Horse
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217884" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-217885">
+          <span class="data">
+           <a href="../search/atr/35/504/1.html">
+            Femur Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217885" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163893">
+          1
+          <input type="hidden" name="number_id" value="163893" />
+         </td>
+        </tr>
+        <tr id="number-163720-row">
+         <td id="arch_asm_table-cell-attribute-217673">
+          <span class="data">
+           <a href="../search/atr/34/430/1.html">
+            Crab
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217673" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163720">
+          1
+          <input type="hidden" name="number_id" value="163720" />
+         </td>
+        </tr>
+        <tr id="number-163674-row">
+         <td id="arch_asm_table-cell-attribute-217577">
+          <span class="data">
+           <a href="../search/atr/34/421/1.html">
+            Red Deer
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217577" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-217578">
+          <span class="data">
+           <a href="../search/atr/35/493/1.html">
+            Skull Facial Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217578" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163674">
+          1
+          <input type="hidden" name="number_id" value="163674" />
+         </td>
+        </tr>
+        <tr id="number-163673-row">
+         <td id="arch_asm_table-cell-attribute-217575">
+          <span class="data">
+           <a href="../search/atr/34/421/1.html">
+            Red Deer
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217575" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-217576">
+          <span class="data">
+           <a href="../search/atr/35/495/1.html">
+            Lower Jaw
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217576" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163673">
+          1
+          <input type="hidden" name="number_id" value="163673" />
+         </td>
+        </tr>
+        <tr id="number-163672-row">
+         <td id="arch_asm_table-cell-attribute-217573">
+          <span class="data">
+           <a href="../search/atr/34/421/1.html">
+            Red Deer
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217573" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-217574">
+          <span class="data">
+           <a href="../search/atr/35/488/1.html">
+            First Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217574" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163672">
+          1
+          <input type="hidden" name="number_id" value="163672" />
+         </td>
+        </tr>
+        <tr id="number-163671-row">
+         <td id="arch_asm_table-cell-attribute-217571">
+          <span class="data">
+           <a href="../search/atr/34/421/1.html">
+            Red Deer
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217571" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-217572">
+          <span class="data">
+           <a href="../search/atr/35/480/1.html">
+            Calcaneous
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217572" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163671">
+          1
+          <input type="hidden" name="number_id" value="163671" />
+         </td>
+        </tr>
+        <tr id="number-163640-row">
+         <td id="arch_asm_table-cell-attribute-217529">
+          <span class="data">
+           <a href="../search/atr/34/1297/1.html">
+            Catfish
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217529" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163640">
+          1
+          <input type="hidden" name="number_id" value="163640" />
+         </td>
+        </tr>
+        <tr id="number-163507-row">
+         <td id="arch_asm_table-cell-attribute-217397">
+          <span class="data">
+           <a href="../search/atr/34/1296/1.html">
+            Cockle family
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="217397" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163507">
+          1
+          <input type="hidden" name="number_id" value="163507" />
+         </td>
+        </tr>
+        <tr id="number-163013-row">
+         <td id="arch_asm_table-cell-attribute-216229">
+          <span class="data">
+           <a href="../search/atr/34/417/1.html">
+            Domestic Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216229" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216228">
+          <span class="data">
+           <a href="../search/atr/35/507/1.html">
+            Mtc Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216228" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163013">
+          1
+          <input type="hidden" name="number_id" value="163013" />
+         </td>
+        </tr>
+        <tr id="number-163012-row">
+         <td id="arch_asm_table-cell-attribute-216226">
+          <span class="data">
+           <a href="../search/atr/34/417/1.html">
+            Domestic Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216226" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216227">
+          <span class="data">
+           <a href="../search/atr/35/469/1.html">
+            MtcWhole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216227" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163012">
+          1
+          <input type="hidden" name="number_id" value="163012" />
+         </td>
+        </tr>
+        <tr id="number-163011-row">
+         <td id="arch_asm_table-cell-attribute-216224">
+          <span class="data">
+           <a href="../search/atr/34/417/1.html">
+            Domestic Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216224" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216225">
+          <span class="data">
+           <a href="../search/atr/35/503/1.html">
+            Humerus Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216225" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163011">
+          1
+          <input type="hidden" name="number_id" value="163011" />
+         </td>
+        </tr>
+        <tr id="number-163010-row">
+         <td id="arch_asm_table-cell-attribute-216221">
+          <span class="data">
+           <a href="../search/atr/34/417/1.html">
+            Domestic Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216221" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216222">
+          <span class="data">
+           <a href="../search/atr/35/491/1.html">
+            Horn core
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216222" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216223">
+          <span class="data">
+           <a href="../search/atr/37/521/1.html">
+            Male
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216223" />
+         </td>
+         <td id="arch_asm_table-cell-number-163010">
+          1
+          <input type="hidden" name="number_id" value="163010" />
+         </td>
+        </tr>
+        <tr id="number-163009-row">
+         <td id="arch_asm_table-cell-attribute-216218">
+          <span class="data">
+           <a href="../search/atr/34/417/1.html">
+            Domestic Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216218" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216219">
+          <span class="data">
+           <a href="../search/atr/35/491/1.html">
+            Horn core
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216219" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216220">
+          <span class="data">
+           <a href="../search/atr/37/522/1.html">
+            Female
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216220" />
+         </td>
+         <td id="arch_asm_table-cell-number-163009">
+          <span class="data">
+           2
+          </span>
+          <input type="hidden" name="number_id" value="163009" />
+         </td>
+        </tr>
+        <tr id="number-163007-row">
+         <td id="arch_asm_table-cell-attribute-216213">
+          <span class="data">
+           <a href="../search/atr/34/417/1.html">
+            Domestic Goat
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216213" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-216214">
+          <span class="data">
+           <a href="../search/atr/35/479/1.html">
+            Astragalus
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="216214" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-163007">
+          1
+          <input type="hidden" name="number_id" value="163007" />
+         </td>
+        </tr>
+        <tr id="number-162720-row">
+         <td id="arch_asm_table-cell-attribute-215624">
+          <span class="data">
+           <a href="../search/atr/34/422/1.html">
+            Dog
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="215624" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-215625">
+          <span class="data">
+           <a href="../search/atr/35/500/1.html">
+            Tibia Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="215625" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-162720">
+          1
+          <input type="hidden" name="number_id" value="162720" />
+         </td>
+        </tr>
+        <tr id="number-162719-row">
+         <td id="arch_asm_table-cell-attribute-215622">
+          <span class="data">
+           <a href="../search/atr/34/422/1.html">
+            Dog
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="215622" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-215623">
+          <span class="data">
+           <a href="../search/atr/35/492/1.html">
+            Skull Brain Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="215623" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-162719">
+          5
+          <input type="hidden" name="number_id" value="162719" />
+         </td>
+        </tr>
+        <tr id="number-159832-row">
+         <td id="arch_asm_table-cell-attribute-209402">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209402" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209403">
+          <span class="data">
+           <a href="../search/atr/35/459/1.html">
+            Vertebrae
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209403" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159832">
+          <span class="data">
+           49
+          </span>
+          <input type="hidden" name="number_id" value="159832" />
+         </td>
+        </tr>
+        <tr id="number-159830-row">
+         <td id="arch_asm_table-cell-attribute-209399">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209399" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209398">
+          <span class="data">
+           <a href="../search/atr/35/494/1.html">
+            Upper Teeth
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209398" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159830">
+          <span class="data">
+           4
+          </span>
+          <input type="hidden" name="number_id" value="159830" />
+         </td>
+        </tr>
+        <tr id="number-159828-row">
+         <td id="arch_asm_table-cell-attribute-209394">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209394" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209395">
+          <span class="data">
+           <a href="../search/atr/35/468/1.html">
+            Ulna
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209395" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159828">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="159828" />
+         </td>
+        </tr>
+        <tr id="number-159826-row">
+         <td id="arch_asm_table-cell-attribute-209390">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209390" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209391">
+          <span class="data">
+           <a href="../search/atr/35/500/1.html">
+            Tibia Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209391" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159826">
+          <span class="data">
+           8
+          </span>
+          <input type="hidden" name="number_id" value="159826" />
+         </td>
+        </tr>
+        <tr id="number-159824-row">
+         <td id="arch_asm_table-cell-attribute-209386">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209386" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209387">
+          <span class="data">
+           <a href="../search/atr/35/490/1.html">
+            Third Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209387" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159824">
+          <span class="data">
+           6
+          </span>
+          <input type="hidden" name="number_id" value="159824" />
+         </td>
+        </tr>
+        <tr id="number-159822-row">
+         <td id="arch_asm_table-cell-attribute-209382">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209382" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209383">
+          <span class="data">
+           <a href="../search/atr/35/493/1.html">
+            Skull Facial Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209383" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159822">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="159822" />
+         </td>
+        </tr>
+        <tr id="number-159820-row">
+         <td id="arch_asm_table-cell-attribute-209378">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209378" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209379">
+          <span class="data">
+           <a href="../search/atr/35/492/1.html">
+            Skull Brain Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209379" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159820">
+          <span class="data">
+           18
+          </span>
+          <input type="hidden" name="number_id" value="159820" />
+         </td>
+        </tr>
+        <tr id="number-159818-row">
+         <td id="arch_asm_table-cell-attribute-209374">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209374" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209375">
+          <span class="data">
+           <a href="../search/atr/35/489/1.html">
+            Second Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209375" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159818">
+          <span class="data">
+           10
+          </span>
+          <input type="hidden" name="number_id" value="159818" />
+         </td>
+        </tr>
+        <tr id="number-159816-row">
+         <td id="arch_asm_table-cell-attribute-209370">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209370" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209371">
+          <span class="data">
+           <a href="../search/atr/35/461/1.html">
+            Scapula
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209371" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159816">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="159816" />
+         </td>
+        </tr>
+        <tr id="number-159814-row">
+         <td id="arch_asm_table-cell-attribute-209366">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209366" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209367">
+          <span class="data">
+           <a href="../search/atr/35/460/1.html">
+            Ribs
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209367" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159814">
+          <span class="data">
+           39
+          </span>
+          <input type="hidden" name="number_id" value="159814" />
+         </td>
+        </tr>
+        <tr id="number-159812-row">
+         <td id="arch_asm_table-cell-attribute-209362">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209362" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209363">
+          <span class="data">
+           <a href="../search/atr/35/508/1.html">
+            Radius Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209363" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159812">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="159812" />
+         </td>
+        </tr>
+        <tr id="number-159809-row">
+         <td id="arch_asm_table-cell-attribute-209356">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209356" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209357">
+          <span class="data">
+           <a href="../search/atr/35/473/1.html">
+            Pelvis
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209357" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159809">
+          <span class="data">
+           12
+          </span>
+          <input type="hidden" name="number_id" value="159809" />
+         </td>
+        </tr>
+        <tr id="number-159807-row">
+         <td id="arch_asm_table-cell-attribute-209352">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209352" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209353">
+          <span class="data">
+           <a href="../search/atr/35/482/1.html">
+            Patella
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209353" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159807">
+          1
+          <input type="hidden" name="number_id" value="159807" />
+         </td>
+        </tr>
+        <tr id="number-159806-row">
+         <td id="arch_asm_table-cell-attribute-209350">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209350" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209351">
+          <span class="data">
+           <a href="../search/atr/35/507/1.html">
+            Mtc Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209351" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159806">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="159806" />
+         </td>
+        </tr>
+        <tr id="number-159803-row">
+         <td id="arch_asm_table-cell-attribute-209344">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209344" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209345">
+          <span class="data">
+           <a href="../search/atr/35/469/1.html">
+            MtcWhole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209345" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159803">
+          <span class="data">
+           5
+          </span>
+          <input type="hidden" name="number_id" value="159803" />
+         </td>
+        </tr>
+        <tr id="number-159801-row">
+         <td id="arch_asm_table-cell-attribute-209341">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209341" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209340">
+          <span class="data">
+           <a href="../search/atr/35/487/1.html">
+            Mpp
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209340" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159801">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="159801" />
+         </td>
+        </tr>
+        <tr id="number-159798-row">
+         <td id="arch_asm_table-cell-attribute-209334">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209334" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209335">
+          <span class="data">
+           <a href="../search/atr/35/496/1.html">
+            Lower Teeth
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209335" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159798">
+          <span class="data">
+           8
+          </span>
+          <input type="hidden" name="number_id" value="159798" />
+         </td>
+        </tr>
+        <tr id="number-159796-row">
+         <td id="arch_asm_table-cell-attribute-209330">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209330" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209331">
+          <span class="data">
+           <a href="../search/atr/35/495/1.html">
+            Lower Jaw
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209331" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159796">
+          <span class="data">
+           14
+          </span>
+          <input type="hidden" name="number_id" value="159796" />
+         </td>
+        </tr>
+        <tr id="number-159794-row">
+         <td id="arch_asm_table-cell-attribute-209326">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209326" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209327">
+          <span class="data">
+           <a href="../search/atr/35/503/1.html">
+            Humerus Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209327" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159794">
+          <span class="data">
+           7
+          </span>
+          <input type="hidden" name="number_id" value="159794" />
+         </td>
+        </tr>
+        <tr id="number-159792-row">
+         <td id="arch_asm_table-cell-attribute-209322">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209322" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209323">
+          <span class="data">
+           <a href="../search/atr/35/488/1.html">
+            First Phalange
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209323" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159792">
+          <span class="data">
+           9
+          </span>
+          <input type="hidden" name="number_id" value="159792" />
+         </td>
+        </tr>
+        <tr id="number-159790-row">
+         <td id="arch_asm_table-cell-attribute-209318">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209318" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209319">
+          <span class="data">
+           <a href="../search/atr/35/504/1.html">
+            Femur Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209319" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159790">
+          <span class="data">
+           10
+          </span>
+          <input type="hidden" name="number_id" value="159790" />
+         </td>
+        </tr>
+        <tr id="number-159787-row">
+         <td id="arch_asm_table-cell-attribute-209312">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209312" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209313">
+          <span class="data">
+           <a href="../search/atr/35/481/1.html">
+            Central
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209313" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159787">
+          3
+          <input type="hidden" name="number_id" value="159787" />
+         </td>
+        </tr>
+        <tr id="number-159786-row">
+         <td id="arch_asm_table-cell-attribute-209310">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209310" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209311">
+          <span class="data">
+           <a href="../search/atr/35/483/1.html">
+            Carpal/Tarsal
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209311" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159786">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="159786" />
+         </td>
+        </tr>
+        <tr id="number-159784-row">
+         <td id="arch_asm_table-cell-attribute-209306">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209306" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209307">
+          <span class="data">
+           <a href="../search/atr/35/480/1.html">
+            Calcaneous
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209307" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159784">
+          <span class="data">
+           4
+          </span>
+          <input type="hidden" name="number_id" value="159784" />
+         </td>
+        </tr>
+        <tr id="number-159782-row">
+         <td id="arch_asm_table-cell-attribute-209302">
+          <span class="data">
+           <a href="../search/atr/34/415/1.html">
+            Domestic Cattle
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209302" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-209303">
+          <span class="data">
+           <a href="../search/atr/35/479/1.html">
+            Astragalus
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="209303" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159782">
+          2
+          <input type="hidden" name="number_id" value="159782" />
+         </td>
+        </tr>
+        <tr id="number-159328-row">
+         <td id="arch_asm_table-cell-attribute-208655">
+          <span class="data">
+           <a href="../search/atr/34/428/1.html">
+            Bird
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="208655" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-159328">
+          <span class="data">
+           14
+          </span>
+          <input type="hidden" name="number_id" value="159328" />
+         </td>
+        </tr>
+        <tr id="number-172237-row">
+         <td id="arch_asm_table-cell-attribute-229722">
+          <span class="data">
+           <a href="../search/atr/34/429/1.html">
+            Fish
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="229722" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172237">
+          <span class="data">
+           7
+          </span>
+          <input type="hidden" name="number_id" value="172237" />
+         </td>
+        </tr>
+        <tr id="number-172751-row">
+         <td id="arch_asm_table-cell-attribute-230345">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230345" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230344">
+          <span class="data">
+           <a href="../search/atr/35/479/1.html">
+            Astragalus
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230344" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172751">
+          <span class="data">
+           2
+          </span>
+          <input type="hidden" name="number_id" value="172751" />
+         </td>
+        </tr>
+        <tr id="number-172753-row">
+         <td id="arch_asm_table-cell-attribute-230349">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230349" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230348">
+          <span class="data">
+           <a href="../search/atr/35/495/1.html">
+            Lower Jaw
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230348" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172753">
+          4
+          <input type="hidden" name="number_id" value="172753" />
+         </td>
+        </tr>
+        <tr id="number-172754-row">
+         <td id="arch_asm_table-cell-attribute-230351">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230351" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230350">
+          <span class="data">
+           <a href="../search/atr/35/496/1.html">
+            Lower Teeth
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230350" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172754">
+          4
+          <input type="hidden" name="number_id" value="172754" />
+         </td>
+        </tr>
+        <tr id="number-172755-row">
+         <td id="arch_asm_table-cell-attribute-230353">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230353" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230352">
+          <span class="data">
+           <a href="../search/atr/35/469/1.html">
+            MtcWhole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230352" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172755">
+          1
+          <input type="hidden" name="number_id" value="172755" />
+         </td>
+        </tr>
+        <tr id="number-172756-row">
+         <td id="arch_asm_table-cell-attribute-230355">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230355" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230354">
+          <span class="data">
+           <a href="../search/atr/35/507/1.html">
+            Mtc Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230354" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172756">
+          1
+          <input type="hidden" name="number_id" value="172756" />
+         </td>
+        </tr>
+        <tr id="number-172757-row">
+         <td id="arch_asm_table-cell-attribute-230356">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230356" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230357">
+          <span class="data">
+           <a href="../search/atr/35/460/1.html">
+            Ribs
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230357" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172757">
+          <span class="data">
+           2
+          </span>
+          <input type="hidden" name="number_id" value="172757" />
+         </td>
+        </tr>
+        <tr id="number-172759-row">
+         <td id="arch_asm_table-cell-attribute-230361">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230361" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230360">
+          <span class="data">
+           <a href="../search/atr/35/461/1.html">
+            Scapula
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230360" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172759">
+          1
+          <input type="hidden" name="number_id" value="172759" />
+         </td>
+        </tr>
+        <tr id="number-172760-row">
+         <td id="arch_asm_table-cell-attribute-230362">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230362" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230363">
+          <span class="data">
+           <a href="../search/atr/35/492/1.html">
+            Skull Brain Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230363" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172760">
+          <span class="data">
+           3
+          </span>
+          <input type="hidden" name="number_id" value="172760" />
+         </td>
+        </tr>
+        <tr id="number-172762-row">
+         <td id="arch_asm_table-cell-attribute-230366">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230366" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230367">
+          <span class="data">
+           <a href="../search/atr/35/493/1.html">
+            Skull Facial Parts
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230367" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172762">
+          2
+          <input type="hidden" name="number_id" value="172762" />
+         </td>
+        </tr>
+        <tr id="number-172763-row">
+         <td id="arch_asm_table-cell-attribute-230368">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230368" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230369">
+          <span class="data">
+           <a href="../search/atr/35/500/1.html">
+            Tibia Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230369" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172763">
+          1
+          <input type="hidden" name="number_id" value="172763" />
+         </td>
+        </tr>
+        <tr id="number-172764-row">
+         <td id="arch_asm_table-cell-attribute-230370">
+          <span class="data">
+           <a href="../search/atr/34/419/1.html">
+            Domestic Pig
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230370" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-230371">
+          <span class="data">
+           <a href="../search/atr/35/468/1.html">
+            Ulna
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="230371" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-172764">
+          2
+          <input type="hidden" name="number_id" value="172764" />
+         </td>
+        </tr>
+        <tr id="number-174031-row">
+         <td id="arch_asm_table-cell-attribute-233082">
+          <span class="data">
+           <a href="../search/atr/34/433/1.html">
+            Wild Boar
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233082" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-233081">
+          <span class="data">
+           <a href="../search/atr/35/502/1.html">
+            Fibula
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233081" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-174031">
+          1
+          <input type="hidden" name="number_id" value="174031" />
+         </td>
+        </tr>
+        <tr id="number-174032-row">
+         <td id="arch_asm_table-cell-attribute-233083">
+          <span class="data">
+           <a href="../search/atr/34/433/1.html">
+            Wild Boar
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233083" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-233084">
+          <span class="data">
+           <a href="../search/atr/35/460/1.html">
+            Ribs
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233084" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-174032">
+          1
+          <input type="hidden" name="number_id" value="174032" />
+         </td>
+        </tr>
+        <tr id="number-174033-row">
+         <td id="arch_asm_table-cell-attribute-233085">
+          <span class="data">
+           <a href="../search/atr/34/433/1.html">
+            Wild Boar
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233085" />
+         </td>
+         <td id="arch_asm_table-cell-attribute-233086">
+          <span class="data">
+           <a href="../search/atr/35/500/1.html">
+            Tibia Whole
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233086" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-174033">
+          1
+          <input type="hidden" name="number_id" value="174033" />
+         </td>
+        </tr>
+        <tr id="number-174093-row">
+         <td id="arch_asm_table-cell-attribute-233195">
+          <span class="data">
+           <a href="../search/atr/34/431/1.html">
+            Unidentifiable
+           </a>
+          </span>
+          <input type="hidden" name="attribute_id" value="233195" />
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-empty">
+         </td>
+         <td id="arch_asm_table-cell-number-174093">
+          <span class="data">
+           101
+          </span>
+          <input type="hidden" name="number_id" value="174093" />
+         </td>
+        </tr>
+       </table>
+      </div>
+      <script>
+       $("#arch_asm_table")
+    .tablesorter({
+    });
+    
+$("table .assemblage")
+    .tablesorter({
+    });
+      </script>
+     </div>
+     <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.js">
+     </script>
+     <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.pie.js">
+     </script>
+     <div id="div-fish_species" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Fish Species Assemblage
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <span>
+         There are no results for this record
+        </span>
+       </li>
+      </ul>
+     </div>
+     <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.js">
+     </script>
+     <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.pie.js">
+     </script>
+     <div id="div-birds_species" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Birds Species Assemblage
+       </h4>
+      </div>
+      <h5>
+       Total = 7
+      </h5>
+      <div>
+       <label class="form_label">
+        Birds
+       </label>
+       <table class="assemblage">
+        <tr>
+         <th>
+         </th>
+         <th>
+          Total
+         </th>
+        </tr>
+        <tr>
+         <td>
+          Gallus gallus f. Domestica
+         </td>
+         <td>
+          4
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Phalacrocorax carbo
+         </td>
+         <td>
+          3
+         </td>
+        </tr>
+       </table>
+       <script type="text/javascript">
+        jQuery(document).ready(function () {
+                                        var data = [{label: "Gallus gallus f. Domestica", data: 4},{label: "Phalacrocorax carbo", data: 3},];
+                                        jQuery.plot(jQuery("#chart49"), data, {
+                                             series: {
+                                                pie: {
+                                                    show: true,
+                                                    combine: {
+                                                        color: '#999',
+                                                        threshold: 0.1
+                                                    }
+                                                }
+                                             },
+                                             legend: {
+                                                show: false
+                                             },
+                                        });
+                                    });
+       </script>
+       <div id="chart49" style="width:400px; height:250px">
+       </div>
+      </div>
+     </div>
+     <div id="ceramic_ass_frame" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Ceramic Assemblage
+       </h4>
+      </div>
+      <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.js">
+      </script>
+      <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.pie.js">
+      </script>
+      <div id="div-ceramic_class" class="frm_subform">
+       <ul>
+        <li class="row">
+         <span>
+          There are no results for this record
+         </span>
+        </li>
+       </ul>
+      </div>
+      <div id="div-ceramic_type" class="frm_subform">
+       <ul>
+        <li class="row">
+         <span>
+          There are no results for this record
+         </span>
+        </li>
+       </ul>
+      </div>
+      <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.js">
+      </script>
+      <script language="javascript" type="text/javascript" src="../lib/js/flot/jquery.flot.pie.js">
+      </script>
+      <div id="div-ceramic_date" class="frm_subform">
+       <ul>
+        <li class="row">
+         <span>
+          There are no results for this record
+         </span>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div id="sfi_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked Special Finds
+       </h4>
+      </div>
+      <ul id="existing-sfi" class="xmi_list">
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_1096.html">
+          CH01PA_1096
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_1096" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           folded nail
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_1118.html">
+          CH01PA_1118
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_1118" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           bracelet
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_1629.html">
+          CH01PA_1629
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_1629" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           object
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_319.html">
+          CH01PA_319
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_319" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Mortaio
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_320.html">
+          CH01PA_320
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_320" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Scoria
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_327.html">
+          CH01PA_327
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_327" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Chiodo
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_338.html">
+          CH01PA_338
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_338" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Scoria
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_340.html">
+          CH01PA_340
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_340" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Chiodo
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_387.html">
+          CH01PA_387
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_387" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Macina
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_607.html">
+          CH01PA_607
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_607" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Chiodo Piegato
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_623.html">
+          CH01PA_623
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_623" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Chiodo
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_626.html">
+          CH01PA_626
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_626" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Bracciale
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_638.html">
+          CH01PA_638
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_638" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Macina
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_643.html">
+          CH01PA_643
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_643" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Chiodo
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_658.html">
+          CH01PA_658
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_658" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Oggetto
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_698.html">
+          CH01PA_698
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_698" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Chiodo
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_961.html">
+          CH01PA_961
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_961" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           millstone
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Special Find:
+         <a href="../sfi_cd/CH01PA_969.html">
+          CH01PA_969
+         </a>
+        </h5>
+        <ul id="fields-for-CH01PA_969" class="xmi_field">
+         <li>
+          <label class="form_label">
+           Short Description
+          </label>
+          <span class="data">
+           Fibule
+          </span>
+         </li>
+         <li>
+          <label class="form_label">
+           Image(s)
+          </label>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
+     <div id="smp_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked Samples
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Sample
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="div-cxt_xmi_smp" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Botanical Assemblage
+       </h4>
+      </div>
+      <script src="../lib/js/jquery.tablesorter.min.js">
+      </script>
+      <script src="../lib/js/jquery.tablesorter.widget-editable.js">
+      </script>
+     </div>
+     <script>
+      $("#arch_asm_table")
+    .tablesorter({
+    });
+    
+$("table .assemblage")
+    .tablesorter({
+    });
+     </script>
+     <div id="skl_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Skeletal Remains
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Skeletal Remain
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="mcw_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Microwear Analysis
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Microwear Record
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="cxt_rec_sheet_display" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Recording Sheet
+       </h4>
+      </div>
+      <ul>
+       <li class="file_thumbs">
+        <a href="../data/files//webthumb_8163.jpg" class="imagebox" title="ICA/ChersonesosSouth/ChersonesosSouth_ARK/text_documentation/scanned_completed_recording_sheets/cxt_CH01PA_15_m.pdf">
+         <img src="../data/files/arkthumb_8163.jpg" alt="file_image" />
+        </a>
+        <a href="http://web.corral.tacc.utexas.edu/ICA/ChersonesosSouth/ChersonesosSouth_ARK/text_documentation/scanned_completed_recording_sheets/cxt_CH01PA_15_m.pdf" alt="ICA/ChersonesosSouth/ChersonesosSouth_ARK/text_documentation/scanned_completed_recording_sheets/cxt_CH01PA_15_m.pdf">
+         <img src="../skins/arkologik/images/results/download_sml.png" alt="[Download]" title="Download" class="med" />
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div id="column-second_column" class="secondary_col">
+     <div id="period" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Date
+       </h4>
+      </div>
+      <ul class="field_list">
+       <li style="display:none">
+        &nbsp;
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+      </ul>
+     </div>
+     <div id="cxt_recframe_frame" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Record Status Flags
+       </h4>
+      </div>
+      <div id="div-recordmeta" class="frm_subform">
+       <ul>
+        <li class="row">
+         <label class="form_label">
+          Closed
+         </label>
+         <img src="../skins/arkologik/images/onoff/chk_na.png" alt="on/off_switch" />
+        </li>
+       </ul>
+      </div>
+      <div id="div-recordmeta" class="frm_subform">
+       <ul>
+        <li class="row">
+         <label class="form_label">
+          Completed
+         </label>
+         <img src="../skins/arkologik/images/onoff/chk_na.png" alt="on/off_switch" />
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div id="cxt_events" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Events
+       </h4>
+      </div>
+      <ul id="events" class="hz_list">
+       <li>
+        <h5>
+         Excavator
+        </h5>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           Not Recorded
+          </li>
+         </ul>
+        </span>
+        <h5>
+         Date Excavated
+        </h5>
+       </li>
+       <li>
+        <h5>
+         Verified by
+        </h5>
+        <h5>
+         Verified on
+        </h5>
+       </li>
+       <li>
+        <h5>
+         Entered By
+        </h5>
+        <span class="data">
+         <ul class="actor_list">
+          <li>
+           Not Recorded
+          </li>
+         </ul>
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="cxt_spat_display" class="mapview mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Spatial Data
+       </h4>
+      </div>
+      <a id="export-png" href="../#.html">
+      </a>
+      <a id="image-download" href="../#.html" download="map.png">
+      </a>
+      <div id="popup">
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript">
+      </script>
+      <script type="text/javascript">
+       proj4.defs("EPSG:27700","+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs");
+    
+    proj4.defs("EPSG:32633","+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs");
+    
+    proj4.defs("EPSG:32632","+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs");
+    
+    proj4.defs("EPSG:32636","+proj=utm +zone=36 +datum=WGS84 +units=m +no_defs");
+    var center = [1161146.542370356,4500173.095768951];
+
+    view =  new ol.View({
+        center: center,
+        zoom: '',
+        projection: 'EPSG:32636',
+    });
+    
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+
+    var overlay = new ol.Overlay({
+        element: container,
+        map: map1,
+    });
+    
+    var map1 = new ol.Map({
+        controls: ol.control.defaults({attribution: false, compass:false}).extend([
+            new ol.control.ScaleLine(),
+        ]),
+        interactions: ol.interaction.defaults(),
+        // Use the canvas renderer because it's currently the fastest
+        renderer: 'canvas',
+        target: 'cxt_spat_display',
+        view: view,
+        overlays: [overlay],
+    });
+
+    window.styleCache={};
+
+    $(document).ready(function() {
+        map1.updateSize();
+        map1.on('moveend',function(){
+            var center = map1.getView().get('center');
+            var extents = map1.getView().get('extents');
+            centerstring = '['+center.toString()+']';
+            var zoom = map1.getView().getZoom();
+            console.log(zoom);
+            console.log(centerstring);
+            $.ajax({
+                method: "POST",
+                url: "/chersonesos/ark/api.php?req=update_sessionmap",
+                data: { center: centerstring, zoomlevel: zoom, map_view: "home", extents:extents  }
+            })
+            .done(function( msg ) {
+                console.log("Session Updated");
+            });
+        });
+    });var osmlayer = new ol.layer.Tile({
+        source: new ol.source.OSM()
+      });
+
+osmlayer.set('name', 'osmlayer');
+
+map1.addLayer(osmlayer);
+
+osmlayer.setVisible( false );
+
+document.getElementById('export-png').addEventListener('click', function() {
+            var mapCanvas = document.createElement('canvas');
+            var size = map1.getSize();
+            mapCanvas.width = size[0];
+            mapCanvas.height = size[1];
+            var mapContext = mapCanvas.getContext('2d');
+
+            Array.prototype.forEach.call(document.querySelectorAll('.ol-viewport canvas'), function(canvas) {
+                console.log(canvas);
+                console.log(canvas.width);
+
+              if (canvas.width &gt; 0) {
+                var opacity = canvas.parentNode.style.opacity;
+                mapContext.globalAlpha = opacity === '' ? 1 : Number(opacity);
+                //var transform = canvas.style.transform;
+                // Get the transform parameters from the style's transform matrix
+                //var matrix = transform.match(/^matrix\(([^\(]*)\)$/)[1].split(',').map(Number);
+                // Apply the transform to the export map context
+                //CanvasRenderingContext2D.prototype.setTransform.apply(mapContext, matrix);
+                mapContext.drawImage(canvas, 0, 0);
+              }
+            });
+            if (navigator.msSaveBlob) {
+              // link download attribuute does not work on MS browsers
+              navigator.msSaveBlob(mapCanvas.msToBlob(), 'map.png');
+            } else {
+              var link = document.getElementById('image-download');
+              link.href = mapCanvas.toDataURL();
+              link.click();
+            }
+          
+          map1.renderSync();
+        })
+
+
+
+
+    var first2 = true;
+    var parseResponse = function(response) {
+        //this is where we style on a per feature basis
+        console.log("parseResponse");
+        console.log(response);
+        features = layer2Source.readFeatures(response);
+        console.log(features);
+        features.forEach(function(e,i,a){
+            var properties = e.getProperties();
+            e.setProperties(properties);
+        });
+        layer2Source.addFeatures(features);
+    
+    };
+
+    var layer2Source = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        loader: function(extent, resolution, projection) {
+            var url = 'https://ica.tacc.utexas.edu/chersonesos/ark/data/mapping/cxt_pg.geojson';
+            jQuery.ajax({
+                url: url,
+                contentType: 'text/xml',
+                data: '&lt;wfs:GetFeature service="WFS" version="1.1.0" outputFormat="text/javascript" xmlns:wfs="http://www.opengis.net/wfs" xmlns:ogc="http://www.opengis.net/ogc"&gt; &lt;wfs:Query typeName="final_plan" srsName="epsg:4326"&gt;&lt;ogc:Box&gt;&lt;ogc:coordinates&gt;' + extent.join(',') + ',epsg:4326&lt;/ogc:coordinates&gt;&lt;/ogc:box&gt;&lt;/wfs:query&gt;&lt;/wfs:getfeature&gt;',
+                type: 'POST',
+                dataType: 'jsonp',
+            });
+        },
+        strategy: ol.loadingstrategy.bbox,
+    });
+
+    var layer2 = new ol.layer.Vector({
+        source:layer2Source,
+    });
+    layer2.setStyle(function(feature, resolution) {
+
+        var symbol = feature.get('symbol');
+
+        if (!symbol) {
+          symbol = 99;
+        }
+
+        cutoff = 0.04;
+
+        if (resolution > cutoff){
+        	symbol = "large" + symbol;
+        } else {
+        	symbol = "small" + symbol;
+        }
+
+        if (!window.styleCache[symbol]) {
+          switch(symbol) {
+              case "small2":
+                window.styleCache[symbol] = 
+                [
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#ffffff",
+                        width: 0.5
+                    }),
+                    fill: new ol.style.Fill({
+                        color: "#000000",
+                    })
+                })
+                ]
+            break;
+            case "small7":
+            case "small8":
+            case "small9":
+            case "small10":
+            case "small11":
+            case "small12":
+            case "small13":
+                window.styleCache[symbol] =
+                [new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#ffffff",
+                        width: 0.1
+                    }),
+                    fill: new ol.style.Fill({
+                        color: "#cccccc",
+                    })
+                
+                })];
+            break;
+            case "large2":
+            case "large7":
+            case "large8":
+            case "large9":
+            case "large10":
+            case "large11":
+            case "large12":
+            case "large13":
+                window.styleCache[symbol] = [];
+            break;
+            default:
+		window.styleCache[symbol] = [
+                    new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#ffffff",
+                        width: 1
+                    }),
+                    fill: new ol.style.Fill({
+                        color: "#00ffff",
+                    })
+                })];                
+          }
+          
+        }
+
+        return window.styleCache[symbol];
+      });
+    
+    layer2.set('name', 'cxt_pg');
+
+    map1.addLayer(layer2);layer2.setVisible(true);layer2.setVisible(true);
+    var layer1Source = new ol.source.Vector({
+        projection: '',
+        url: 'https://ica.tacc.utexas.edu/chersonesos/ark/data/mapping/final_plan.geojson',
+        format: new ol.format.GeoJSON() });
+    
+    var layer1 = new ol.layer.Vector({ source: layer1Source });
+layer1.setStyle(function(feature, resolution) {
+
+        var symbol = feature.get('symbol');
+
+        if (!symbol) {
+          symbol = 99;
+        }
+
+        cutoff = 0.04;
+
+        if (resolution > cutoff){
+        	symbol = "large" + symbol;
+        } else {
+        	symbol = "small" + symbol;
+        }
+
+        if (!window.styleCache[symbol]) {
+          switch(symbol) {
+              case "small15":
+                window.styleCache[symbol] = 
+                [
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 0.5
+                    })
+                }),
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 5,
+                        lineDash: [1, 9999],
+                        lineCap: "butt"
+                    })
+                }),
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 2,
+                        lineDash: [4, 9999],
+                        lineCap: "butt"
+                    })
+                }),
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 3,
+                        lineDash: [3, 9999],
+                        lineCap: "butt"
+                    })
+                }),
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 4,
+                        lineDash: [2, 9999],
+                        lineCap: "butt"
+                    })
+                }),
+                new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 1,
+                        lineDash: [5, 9999],
+                        lineCap: "butt"
+                    })
+                })
+                ]
+            break;
+            case "small19":
+                window.styleCache[symbol] =
+                [new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#999999",
+                        lineDash: [1,1],
+                        lineCap: "butt",
+                        width: 0.5
+                    })
+                })];
+            break;
+            case "small18":
+            case "small8":
+            case "small8":
+                window.styleCache[symbol] =
+                [new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 0.5
+                    })
+                })];
+            break;
+            case "small6":
+            case "small9":
+            case "small13":
+                window.styleCache[symbol] =
+                [new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#555555",
+                        width: 0.2,
+                        lineDash: [1,1]
+                    })
+                })];
+            break;
+            case "large15":
+            case "large6":
+            case "large9":
+            case "large13":
+            case "large18":
+            case "large19":
+                window.styleCache[symbol] = [];
+            break;
+            case "small21":
+            case "large21":
+            case "small12":
+            case "large12":
+            	window.styleCache[symbol] = [new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 1
+                    })
+                })];
+            break;
+            default:
+				window.styleCache[symbol] = [new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "#000000",
+                        width: 0.1
+                    })
+                })];                
+          }
+          
+        }
+
+        return window.styleCache[symbol];
+      });
+
+    layer1.set('name', 'cxt_pl');
+
+    map1.addLayer(layer1);layer1.setVisible(true);
+    var layerconf_field_cxt_schmSource = new ol.source.Vector({
+        projection: 'epsg:32636',
+        url: 'https://ica.tacc.utexas.edu/chersonesos/ark/data/mapping/cxt_schm.geojson',
+        format: new ol.format.GeoJSON() });
+    
+    var layerconf_field_cxt_schm = new ol.layer.Vector({ source: layerconf_field_cxt_schmSource });
+layerconf_field_cxt_schm.setStyle(
+        new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255, 255, 255, 0.0)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: 'rgba(250, 250, 250, 0.8)',
+                width: 0.1
+            }),
+            image: new ol.style.Circle({
+                radius: 0,
+                fill: new ol.style.Fill({
+                    color: '#ff561d'
+                })
+            })
+        }));
+layerconf_field_cxt_schm.set('selectable', true);
+
+    firstconf_field_cxt_schm = true;
+    map1.getLayers().forEach(function(i,e,a){
+        if (i.get('name')=='Context Schema'){
+            var source = i.getSource();
+            source.on('change', function (event) {
+                if (source.getState() == 'ready') {
+                    if(firstconf_field_cxt_schm){
+                        map1.updateSize();
+                        map1.getView().fit(source.getExtent(),  map1.getSize());
+                        map1.render();
+                        firstconf_field_cxt_schm = false;
+                    }
+                }
+            });
+        }
+    });
+    layerconf_field_cxt_schm.set('name', 'Context Schema');
+
+    map1.addLayer(layerconf_field_cxt_schm);layerconf_field_cxt_schm.setVisible(true);
+    var overlayStyle = (function(){
+        var focusstyle = new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 6,
+                fill: new ol.style.Fill({color: 'rgba(255, 255, 0, 0.6)'}),
+                stroke: new ol.style.Stroke({color: '#e29446', width: 1})
+            }),
+            fill: new ol.style.Fill({color: 'rgba(255, 255, 0, 0.6)'}),
+            stroke: new ol.style.Stroke({color: '#e29446', width: 2}),
+            zIndex: 3
+        });
+        
+        var style = new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 6,
+                stroke: new ol.style.Stroke({color: '#e29446', width: 1})
+            }),
+            stroke: new ol.style.Stroke({color: '#e29446', width: 2}),
+            zIndex: 2
+        });
+        return function(feature, resolution) {
+            if ( typeof ark_id !== 'undefined' ) {
+                if(feature.getProperties().ark_id.toUpperCase() == ark_id){
+                    return [focusstyle];
+                } else {
+                    return [style];
+                }
+            } else {
+                return [style];
+            }
+        };
+    })();
+
+    
+    var multiSelectOverlay = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        map: map1,
+        style: new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 6,
+                fill: new ol.style.Fill({color: 'rgba(255, 255, 255, 0.6)'}),
+                stroke: new ol.style.Stroke({color: '#e29446', width: 1})
+            }),
+            fill: new ol.style.Fill({color: 'rgba(255, 86, 29, 0.6)'}),
+            stroke: new ol.style.Stroke({color: '#e29446', width: 2})
+        }),
+        projection:'EPSG:32636',
+    });
+    multiSelectOverlay.set('name', "multiSelectOverlay");
+
+    multiSelectOverlay.setStyle(overlayStyle);
+
+    var collection = new ol.Collection();
+    var iframes = {};
+    var iframeids = [];
+
+    var cycleFeatureData = function(iframeids, iframes, direction) {
+        console.log(iframeids);
+        var index = iframeids.indexOf(ark_id);
+        
+        if(direction!='back'){
+            index += 1;
+        } else {
+            index -= 1;
+        }
+        if(index<0){
+            index=iframeids.length-1;
+        }
+        if(index>iframeids.length-1){
+            index=0;
+        }
+        console.log(index);
+        
+        iframes[ark_id].style.display = 'none';
+        ark_id = iframeids[index];
+        
+        multiSelectOverlay.setStyle(overlayStyle);
+        
+        iframes[ark_id].style.display = 'inline';
+        
+        var titleElem = document.getElementById('overlayTitleElem');
+        titleElem.href='/chersonesos/ark//micro_view.php?item_key=cxt_cd&cxt;_cd='+ark_id;
+
+        titleElem.innerHTML = '&lt;h5&gt;Context '+ark_id+'&lt;/h5&gt;';
+
+        iframes[ark_id].height = iframes[ark_id].contentWindow.document.body.scrollHeight + "px";
+    }
+
+    var displayFeatureInfo = function(pixel) {
+        $('#subforms').append($(overlay.getElement()).show());
+        var alreadySelected = map1.hasFeatureAtPixel(pixel, {
+            layerFilter: function(layer) {
+                return layer.get('name') == 'multiSelectOverlay' 
+            }
+        });
+        var selectableLayer = map1.hasFeatureAtPixel(pixel, {
+            layerFilter: function(layer) {
+                return layer.get('selectable')
+            }
+        });
+        if( alreadySelected ){
+            console.log('selected');
+            cycleFeatureData(iframeids, iframes, 'fore')
+        } else if( selectableLayer ){
+            overlay.getElement().innerHTML = '&lt;img class="loading" src="/chersonesos/ark//skins/arkologik/images/lightbox/loading.gif"&gt;&lt;/img&gt;';
+            overlay.getElement().style.display = 'block';
+            var data = document.createElement('div');
+
+            iframes = {};
+            iframeids = [];
+
+            multiSelectOverlay.getSource().clear();
+
+            map1.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                ark_id = feature.getProperties().ark_id.toUpperCase();
+                console.log(ark_id);
+                iframes[ark_id] = document.createElement('iframe');
+                iframes[ark_id].setAttribute("id","popupiframe"+ark_id);
+                iframes[ark_id].setAttribute("scrolling","yes");
+                iframes[ark_id].setAttribute("src","api.php?req=transcludeSubform&item;_key=cxt_cd&cxt;_cd="+ark_id+"&sf;_conf=cxt_map_pop_conf&sf;_key=cxt_cd&sf;_val="+ark_id+"");
+                iframes[ark_id].style.display = 'none';
+                iframes[ark_id].onload= function(){
+                    $('.loading').hide();
+                    iframes[ark_id].height = iframes[ark_id].contentWindow.document.body.scrollHeight + "px";
+                };
+                if(iframeids.indexOf(ark_id)==-1){
+                    iframeids.push(ark_id);
+                };
+                data.appendChild(iframes[ark_id]);
+                multiSelectOverlay.getSource().addFeature(feature);
+            });
+            
+            
+            iframeids.sort();
+            
+            var titlebar = document.createElement('div');
+            var backbtn = document.createElement('a');
+            backbtn.id='backbtn';
+            backbtn.innerHTML = '&lt;&lt;';
+            backbtn.onclick = function(){cycleFeatureData(iframeids, iframes, 'back')};
+            var forebtn = document.createElement('a');
+            forebtn.id='forebtn';
+            forebtn.innerHTML = '&gt;&gt;';
+            forebtn.onclick = function(){cycleFeatureData(iframeids, iframes, 'fore')};
+            var titleElem = document.createElement('a');
+            titleElem.id = 'overlayTitleElem';
+            titleElem.href='/chersonesos/ark//micro_view.php?item_key=cxt_cd&cxt;_cd='+ark_id;
+            titleElem.innerHTML = '&lt;h5&gt;Context '+ark_id+'&lt;/h5&gt;';
+            titlebar.appendChild(backbtn);
+            titlebar.appendChild(titleElem);
+            titlebar.appendChild(forebtn);
+            iframes[ark_id].style.display = 'inline';
+            overlay.getElement().appendChild(titlebar);
+            overlay.getElement().appendChild(data);
+        } else {
+            iframes = {};
+            iframeids = [];
+
+            multiSelectOverlay.getSource().clear();
+            multiSelectOverlay.getSource().addFeatures(collection);
+
+            overlay.getElement().style.display = 'none';
+        }
+    };
+
+    map1.on('click', function(evt) {
+        var pixel = map1.getEventPixel(evt.originalEvent);
+        displayFeatureInfo(pixel);
+    });
+
+
+    firstselectconf_field_cxt_schm =true;
+    map1.getLayers().forEach(function(i,e,a){
+    i.on('change', function (event) {
+    var source = i.getSource();
+    if (source.getState() == 'ready' && firstselectconf_field_cxt_schm ) {
+    if (i.get('name')=='Context Schema'){
+    collection.clear();
+    spat = false;
+    console.log(map1.getView().getCenter());
+    i.getSource().getFeatures().forEach(function(e,i,a){
+    if(e.get('ark_id') != null){
+    if(e.get('ark_id').toUpperCase()=='CH01PA_15'){
+    firstselectconf_field_cxt_schm = false;
+    
+    var selectedOverlay = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        map: map1,
+        style: new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 6,
+                fill: new ol.style.Fill({color: 'rgba(255, 255, 255, 0.6)'}),
+                stroke: new ol.style.Stroke({color: '#e29446', width: 1})
+            }),
+            fill: new ol.style.Fill({color: 'rgba(255, 86, 29, 0.6)'}),
+            stroke: new ol.style.Stroke({color: '#e29446', width: 2})
+        }),
+        projection:'EPSG:32636',
+    });
+    selectedOverlay.set('name', "selectedOverlay");
+
+    selectedOverlay.getSource().addFeature(e);
+    overlay.getElement().style.display = 'none';
+    spat = true;
+    map1.updateSize();
+    extent = e.getGeometry().getExtent();
+    if(2){
+    extent[0]=extent[0]-2;
+    extent[1]=extent[1]-2;
+    extent[2]=extent[2]+2;
+    extent[3]=extent[3]+2;
+}
+console.log(map1.getView().getCenter());
+map1.getView().fit(
+extent,
+map1.getSize()
+);
+console.log(map1.getView().getCenter());
+
+}
+}
+});
+if(!spat){
+console.log($('#'+map1.getTarget()));
+var nospat = document.createElement('div');
+nospat.setAttribute("id","message");
+$(nospat).html("No Spatial Data");
+$('#'+map1.getTarget()).prepend(nospat);
+}
+}
+}
+});
+});
+      </script>
+      <link rel="stylesheet" href="../lib/js/ol3/ol.css" />
+      <link rel="stylesheet" href="../skins/arkologik/stylesheets/map_view.css" />
+     </div>
+     <div id="sph_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Site Photos
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Site Photo
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="cxt_sketch_display" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Sketches
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <span class="value">
+         There are no files attached to this record yet.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="gph_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked GeoPhotos
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Geophoto
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="drw_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked Drawings
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Drawing
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="tps_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked TopoSurfaces
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Topo Surface
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="pmp_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        PhotoModeler Projects
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         PMP
+        </label>
+        <span class="value">
+         No attached items.
+        </span>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- end MAIN -->
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../micro_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../micro_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end WRAPPER -->
+  </div>
+ </body>
+</html>

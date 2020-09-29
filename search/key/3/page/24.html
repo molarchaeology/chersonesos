@@ -1,0 +1,1429 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Search Page
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../../../../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../../../../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../../../../skins/arkologik/stylesheets/lightbox.css" type="text/css" rel="stylesheet" />
+  <link href="../../../../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="../../../../lib/js/ol3/ol.css" />
+  <link rel="stylesheet" href="../../../../skins/arkologik/stylesheets/map_view.css" />
+  <link rel="stylesheet" href="../../../../skins/arkologik/stylesheets/colorbox.css" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="../../../../lib/js/jquery-ui.js">
+  </script>
+  <script type="text/javascript" src="../../../../lib/js/php.js">
+  </script>
+  <script type="text/javascript" src="../../../../lib/js/jquery.colorbox.js">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../../../../js/js_functions.js">
+  </script>
+  <script type="text/javascript" src="../../../../js/common.js">
+  </script>
+  <script type="text/javascript" src="../../../../js/livesearch.js">
+  </script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+            // drawer toggle script
+            $(".dr_toggle").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+            $("ul#ftr_options .save").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+        });
+
+        $(window).load(function(){
+            // set heights in left panel
+            var main_ht = $("#main").height();
+            var lpanel_ht = $("#lpanel").height();
+            var largest_child = 0;
+            $('#lpanel').children().each(function() {
+                var ht = $(this).height();
+                if (ht > largest_child) {
+                    largest_child = ht;
+                };
+            });
+            var largest = max(main_ht, largest_child, lpanel_ht);
+            console.log ("largest: " + largest);
+            // set all the heights to the same thing
+            $('#lpanel').children().each(function() {
+                $(this).height(largest);
+            });
+            $('#lpanel').height(largest);
+            $('#main').height(largest);
+        });
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_results">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../../../../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <a href="../../../../user_home.html">
+     <!-- &lt;img src="skins/arkologik/images/logo.png" alt="logo"  /&gt; -->
+    </a>
+    <div id="hdr-tools">
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../../../../data_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../../../../data_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../../../../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../../../../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- DYNAMIC NAVIGATION -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../../../../user_home.html">
+        home
+       </a>
+      </li>
+      <li>
+       <a href="../../../../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li id="active">
+       <a href="../../../../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../../../../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <div id="filter_panel">
+     <h1>
+      Search
+     </h1>
+     <ul id="ftr_options">
+      <li>
+       <a href="../../../../data_view.html" class="clear_ftr" title="Clear all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="refresh" title="Rerun all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../overlay_holder.html" class="save" title="Save filter set">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Filters
+      </h4>
+     </div>
+     <ul id="active_filters">
+      <li class="active_filter">
+       <label>
+        Site Photo
+       </label>
+       <label>
+        - All
+       </label>
+       <span class="del_op">
+        <a href="../../../../data_view.html">
+         <img src="../../../../skins/arkologik/images/plusminus/bigminus.png" alt="[-]" class="med" />
+        </a>
+       </span>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Records
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../search/key/1/all.html">
+         Contexts
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/16/all.html">
+         Context Groups
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/3/all.html">
+         Site Photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/7/2.html">
+         People
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/9/all.html">
+         Samples
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/11/all.html">
+         Special Finds
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/12/all.html">
+         Geo-photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/15/all.html">
+         Photo Modeller Project Records
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/17/all.html">
+         Drawings
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/18/all.html">
+         Topo Surfaces
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/19/all.html">
+         Microwear Analysis
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/key/20/all.html">
+         Skeletal Remains
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Criteria
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../search/atr/54/fauxdex.html">
+         Find Class
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/16/fauxdex.html">
+         Find Material
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/8/fauxdex.html">
+         Period
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/26/fauxdex.html">
+         Area (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/25/fauxdex.html">
+         Room (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/13/fauxdex.html">
+         Phase (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/14/fauxdex.html">
+         Sample Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/34/fauxdex.html">
+         Faunal Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/49/fauxdex.html">
+         Bird Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/50/fauxdex.html">
+         Fish Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../search/atr/21/fauxdex.html">
+         Plant Species
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div id="ftr_mode_nav">
+      <a href="../../../../data_view.html">
+       Advanced options
+      </a>
+     </div>
+    </div>
+    <div id="drawer_1" class="dr">
+     <h1>
+      Save/Saved
+      <a href="../../../../#.html" class="dr_toggle">
+       [&lt;&lt;]
+      </a>
+     </h1>
+     <ul>
+      <li id="save_ftr">
+       <label>
+        save
+       </label>
+       <form method="get" action="/chersonesos/ark/data_view.php">
+        <input type="hidden" name="submiss_serial" value="" />
+        <input type="hidden" name="output_mode" value="table" />
+        <input type="hidden" name="saveftr" value="set" />
+        <span>
+         <span class="input">
+          <input type="text" name="nname" value="" style="width:35%" />
+         </span>
+         <span class="input">
+          <button type="submit">
+           save
+          </button>
+         </span>
+        </span>
+       </form>
+      </li>
+     </ul>
+     <div id="dvlp_saved_filters" class="saved_ftr">
+     </div>
+    </div>
+   </div>
+   <!-- THE MAIN AREA -->
+   <div id="main" class="main_results">
+    <div id="results_nav">
+     <label>
+      table
+     </label>
+     <ul id="tools">
+      <li>
+       <a href="../../../../overlay_holder.html" class="gears colorbox" title="Configure Fields">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_views">
+      <li>
+       <a href="../../../../data_view.html" class="text" title="View as Text">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="table" title="View as Table">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="thumb" title="View as Thumbnails">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../data_view.html" class="map" title="View as Map">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../resultsmicro_view.html" class="printall" title="View Full Records (Print View)" target="mywin">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_feeds">
+      <li>
+       <a href="../../../../overlay_holder.html" class=" colorbox" title="RSS">
+        RSS
+       </a>
+      </li>
+     </ul>
+     <ul id="result_downloads">
+      <li>
+       <a href="../../../../overlay_holder.html" class=" colorbox" title="Export to CSV">
+        CSV
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="result_tbl">
+     <table class="result_tbl">
+      <th>
+       <a href="../../../../data_view.html">
+        Site Photo
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Description
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Photographed By
+       </a>
+      </th>
+      <th>
+       <a href="../../../../data_view.html">
+        Date Photographed
+       </a>
+      </th>
+      <th>
+       Options
+      </th>
+      <tr id="sph_cd_CH05SR_581" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_581.html" class="itemkey_link">
+          CH05SR_581
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on Stenopos (with iron object)
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_581.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_582" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_582.html" class="itemkey_link">
+          CH05SR_582
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on Stenopos (with iron object)
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_582.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_583" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_583.html" class="itemkey_link">
+          CH05SR_583
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Courtyard post context 538
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_583.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_584" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_584.html" class="itemkey_link">
+          CH05SR_584
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Courtyard post context 538
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_584.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_585" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_585.html" class="itemkey_link">
+          CH05SR_585
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         N section of courtyard post context 538
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_585.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_586" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_586.html" class="itemkey_link">
+          CH05SR_586
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Central section of courtyard post context 538
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_586.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_587" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_587.html" class="itemkey_link">
+          CH05SR_587
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Central section of courtyard post context 538
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_587.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_588" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_588.html" class="itemkey_link">
+          CH05SR_588
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Courtyard post context 538
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_588.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_589" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_589.html" class="itemkey_link">
+          CH05SR_589
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on stenopos
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_589.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_590" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_590.html" class="itemkey_link">
+          CH05SR_590
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on stenopos
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_590.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_591" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_591.html" class="itemkey_link">
+          CH05SR_591
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on stenopos - lower part of body
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_591.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_592" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_592.html" class="itemkey_link">
+          CH05SR_592
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on stenopos
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_592.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_593" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_593.html" class="itemkey_link">
+          CH05SR_593
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on stenopos - lower part of body
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_593.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_594" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_594.html" class="itemkey_link">
+          CH05SR_594
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Human remains on stenopos
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_594.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_595" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_595.html" class="itemkey_link">
+          CH05SR_595
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Cross section
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_595.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_596" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_596.html" class="itemkey_link">
+          CH05SR_596
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Main street and east profile
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_596.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_597" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_597.html" class="itemkey_link">
+          CH05SR_597
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tile collapse on Main street, collapse of wall 394 and east profile
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_597.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_598" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_598.html" class="itemkey_link">
+          CH05SR_598
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tile collapse on Main street, collapse of wall 394 and east profile
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_598.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_599" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_599.html" class="itemkey_link">
+          CH05SR_599
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tile collapse on Main street, collapse of wall 394 and east profile
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_599.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_600" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_600.html" class="itemkey_link">
+          CH05SR_600
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tile collapse on Main street, collapse of wall 394 and east profile
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_600.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_601" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_601.html" class="itemkey_link">
+          CH05SR_601
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tile collapse on Main street and collapse of wall 394
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_601.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_602" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_602.html" class="itemkey_link">
+          CH05SR_602
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Tile collapse on Main street and collapse of wall 394
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_602.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_603" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_603.html" class="itemkey_link">
+          CH05SR_603
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Main street, east profile of the trench
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_603.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_604" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_604.html" class="itemkey_link">
+          CH05SR_604
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Main street, east profile of the trench
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_604.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="sph_cd_CH05SR_605" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../sph_cd/CH05SR_605.html" class="itemkey_link">
+          CH05SR_605
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         East profile of pit in room 37
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         GK
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         14-7-2005
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../sph_cd/CH05SR_605.html">
+          <img src="../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div id="paging_nav">
+     <ul class="pag_list">
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/1.html">
+        &laquo;
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/23.html">
+        &lsaquo;
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/22.html">
+        22
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/23.html">
+        23
+       </a>
+      </li>
+      <li class="cur_pag">
+       <a href="../../../../search/key/3/page/24.html">
+        24
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/25.html">
+        25
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/26.html">
+        26
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/25.html">
+        &rsaquo;
+       </a>
+      </li>
+      <li class="pag_list">
+       <a href="../../../../search/key/3/page/68.html">
+        &raquo;
+       </a>
+      </li>
+     </ul>
+     <span class="info">
+      Total Pages: &nbsp;68
+     </span>
+     <span class="info">
+      Total Results: &nbsp;1679
+     </span>
+     <a href="../../../../search/key/3/all.html">
+      <button type="submit">
+       view all
+      </button>
+     </a>
+     <form method="get" id="perpage_selector" action="/chersonesos/ark/data_view.php">
+      <fieldset>
+       <label for="perpage">
+        Number of rows per page:
+       </label>
+       <input type="text" name="perpage" value="25" class="perpage" />
+       <button type="submit">
+        go
+       </button>
+      </fieldset>
+     </form>
+    </div>
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../../../../data_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../../../../data_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../../../../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end content WRAPPER -->
+  </div>
+  <div class="editpanel">
+   <div id="edit_field_conf_field_description" class="edit_field_colorbox">
+    Editing Description for
+    <div class="edit_field_itemkeys">
+    </div>
+    <form action="" method="POST">
+     <input type="hidden" value="" name="multi_edit_itemvalues" class="multi_edit_itemkeys" />
+     <input type="hidden" value="update_multi" name="update_db" />
+     <input type="hidden" value="" name="submiss_serial" />
+     <input type="hidden" value="conf_field_description" name="field" />
+     <textarea id="description" name="description" rows="5" cols="12">
+     </textarea>
+     <input type="hidden" name="description_qtype" value="add" />
+     <button>
+      submit
+     </button>
+    </form>
+   </div>
+  </div>
+  <script>
+   var fields = ['conf_field_description'];console.log('conf_mac_table');
+  </script>
+  <script>
+   var fieldAlias = ['Description'];
+  </script>
+  <script type="text/javascript" src="../../../../js/multi_edit.js">
+  </script>
+ </body>
+</html>

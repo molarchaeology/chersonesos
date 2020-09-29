@@ -1,0 +1,834 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Record View Page: CH06SR_112
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../skins/arkologik/stylesheets/colorbox.css" type="text/css" rel="stylesheet" />
+  <link href="../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script src="../lib/js/jquery.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/jquery-ui.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/php.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/jquery.colorbox.js" type="text/javascript">
+  </script>
+  <script src="../lib/js/ol3/ol.js" type="text/javascript">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../js/js_functions.js">
+  </script>
+  <script src="../js/js_functions.js" type="text/javascript">
+  </script>
+  <script src="../js/livesearch.js" type="text/javascript">
+  </script>
+  <script src="../js/common.js" type="text/javascript">
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_mcrview">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <!-- header tools -->
+    <div id="hdr-tools">
+     <!-- version number -->
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../micro_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../micro_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <!-- search box -->
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- main navigation bar -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../user_home.html">
+        home
+       </a>
+      </li>
+      <li id="active">
+       <a href="../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li>
+       <a href="../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <h1>
+     Micro View Forms
+    </h1>
+    <ul class="module_list" id="mvlpmodlist">
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Context" class="med" />
+      </a>
+      <label>
+       Contexts
+      </label>
+      <a href="../search/key/1/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Context" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Group" class="med" />
+      </a>
+      <label>
+       Context Groups
+      </label>
+      <a href="../search/key/16/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Group" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Special Find" class="med" />
+      </a>
+      <label>
+       Special Finds
+      </label>
+      <a href="../search/key/11/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Special Find" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Sample" class="med" />
+      </a>
+      <label>
+       Samples
+      </label>
+      <a href="../search/key/9/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Sample" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Microwear Record" class="med" />
+      </a>
+      <label>
+       Microwear Records
+      </label>
+      <a href="../search/key/19/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Microwear Record" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Skeletal Remain" class="med" />
+      </a>
+      <label>
+       Skeletal Remains
+      </label>
+      <a href="../search/key/20/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Skeletal Remain" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Drawing" class="med" />
+      </a>
+      <label>
+       Drawings
+      </label>
+      <a href="../search/key/17/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Drawing" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Site Photo" class="med" />
+      </a>
+      <label>
+       Site Photos
+      </label>
+      <a href="../search/key/3/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Site Photo" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Geophoto" class="med" />
+      </a>
+      <label>
+       GeoPhoto Codes
+      </label>
+      <a href="../search/key/12/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Geophoto" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a Topo Surface" class="med" />
+      </a>
+      <label>
+       Topo Surfaces
+      </label>
+      <a href="../search/key/18/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search Topo Surface" class="med" />
+      </a>
+     </li>
+     <li>
+      <a href="../micro_view.html">
+       <img src="../skins/arkologik/images/plusminus/view.png" title="View a PMP" class="med" />
+      </a>
+      <label>
+       PMPs
+      </label>
+      <a href="../search/key/15/all.html">
+       <img src="../skins/arkologik/images/plusminus/view_mag.png" title="Search PMP" class="med" />
+      </a>
+     </li>
+    </ul>
+   </div>
+   <!-- MAIN CONTENT (IN COLUMNS) -->
+   <div id="main" class="main_mcrview">
+    <div id="record_nav" class="record_nav">
+     <div id="record_upper">
+      <div class="record_upper_left">
+       <div id="WPLink">
+        <a href="../ https://chersonesos.la.utexas.edu.html" target="_blank">
+         Search linked Wordpress for this item
+        </a>
+       </div>
+       <div id="record_jumper">
+        <div id="itemval_jumper">
+         <form method="get" id="select_itemval" action="/chersonesos/ark/micro_view.php">
+          <fieldset>
+           <label>
+            Drawing
+           </label>
+           <script>
+            $(document).ready( function() {
+                    console.log('loading');
+                    $.getJSON(
+                        'https://ica.tacc.utexas.edu/chersonesos/ark/itemlist/drw_cd',
+                        function(availablekeys) {
+                            $( "#jumper_input" ).autocomplete({
+                              source: availablekeys["itemkeys"],
+                              select: function( event, ui ) {
+                                window.location.href = 'https://n2t.net/ark:/87610/t66h2r/drw_cd/' + ui.item.value;
+                              }
+                            })  
+                        }
+                    ).fail(function(jqxhr, textStatus, error ) {
+                        var err = textStatus + ", " + error;
+                        console.log( "Request Failed: " + err )
+                    })
+                  });
+           </script>
+           <input id="jumper_input" type="text" name="drw_cd" value="" />
+           <input type="hidden" name="item_key" value="drw_cd" />
+          </fieldset>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div id="record_lower">
+      <div id="permalink">
+       <span>
+        <label>
+         Archival Resource Key:
+        </label>
+        <a href="http://n2t.net/ark:/87610/t66h2r/drw_cd/CH06SR_112">
+         ark:/87610/t66h2r/drw_cd/CH06SR_112
+        </a>
+       </span>
+      </div>
+      <ul id="record_nav">
+       <li class="current">
+        CH06SR
+       </li>
+       <li class="current">
+        112
+       </li>
+       <li class="current">
+        Plan
+       </li>
+      </ul>
+      <ul id="record_refresh">
+       <li>
+        <a href="../micro_view.html" class="refresh" title="Refresh">
+         &nbsp;
+        </a>
+       </li>
+      </ul>
+      <ul id="record_admin">
+      </ul>
+     </div>
+    </div>
+    <div id="column-main_column" class="primary_col">
+     <div id="spf_img_display" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Photos
+       </h4>
+      </div>
+      <ul>
+       <li class="file_thumbs">
+        <a href="../data/files//webthumb_5527.jpg" class="imagebox" title="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/drawings/master/drw_CH06SR_112_pl1_m.tif">
+         <img src="../data/files/arkthumb_5527.jpg" alt="file_image" />
+        </a>
+        <a href="http://web.corral.tacc.utexas.edu/ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/drawings/master/drw_CH06SR_112_pl1_m.tif" alt="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/drawings/master/drw_CH06SR_112_pl1_m.tif">
+         <img src="../skins/arkologik/images/results/download_sml.png" alt="[Download]" title="Download" class="med" />
+        </a>
+       </li>
+       <li class="file_thumbs">
+        <a href="../data/files//webthumb_5528.jpg" class="imagebox" title="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/drawings/master/drw_CH06SR_112_pl2_m.tif">
+         <img src="../data/files/arkthumb_5528.jpg" alt="file_image" />
+        </a>
+        <a href="http://web.corral.tacc.utexas.edu/ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/drawings/master/drw_CH06SR_112_pl2_m.tif" alt="ICA/ChersonesosSouth/ChersonesosSouth_ARK/image_documentation/excavation/drawings/master/drw_CH06SR_112_pl2_m.tif">
+         <img src="../skins/arkologik/images/results/download_sml.png" alt="[Download]" title="Download" class="med" />
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div id="drw_img_desc" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Description
+       </h4>
+      </div>
+      <ul>
+       <li class="row">
+        <label class="form_label">
+         Description
+        </label>
+        <span class="data">
+         Bedrock layer, courtyard
+        </span>
+       </li>
+       <li style="display:none">
+        &nbsp;
+       </li>
+      </ul>
+     </div>
+     <div id="scale" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Scale
+       </h4>
+      </div>
+      <ul class="field_list">
+       <li class="row">
+        <span class="data">
+         <ul class="attr_list">
+          <li>
+           <a href="../search/atr/22/272/1.html">
+            1:50
+           </a>
+           <a target="_blank" href="../concept/attribute/272.html">
+            <img src="../skins/arkologik/images/plusminus/help_over.png" alt="info" />
+           </a>
+          </li>
+         </ul>
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div id="cxt_xmiconf_xmi_viewer" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Linked Contexts
+       </h4>
+      </div>
+      <ul id="existing-cxt" class="xmi_list">
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_666.html">
+          CH06SR_666
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_666" class="xmi_field">
+         <li>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_666.html">
+          CH06SR_666
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_666" class="xmi_field">
+         <li>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_771.html">
+          CH06SR_771
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_771" class="xmi_field">
+         <li>
+          <span class="data">
+           Cut with fairly steep edges and a rounded bottom. At surface the dimensions are 90 cm (N-S) X 95 cm (E-W) and the depth is 55 cm from the surface of bedrock/slab? The south and west surface of the cut is higher than the north and (even higher than that from the) east.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_773.html">
+          CH06SR_773
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_773" class="xmi_field">
+         <li>
+          <span class="data">
+           Large stone slab that is approximately 55 cm (NE-SW) X 1 M (NW-SE) and at least 15 cm in height.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_841.html">
+          CH06SR_841
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_841" class="xmi_field">
+         <li>
+          <span class="data">
+           A distinct cut with the dimensions of 80-90 cm (NW-SE) X 3.45 M (NE-SW) and approximately 45 cm in depth. The southern-most cut is into the bedrock and eroded bedrock and deeper (higher from surface of cut to top of cut) than the northern-most cut. The Northern cut is approximately 25 cm in depth and only extends about 2/3rds the length of the Southern cut. Both cuts are steep and the surface/bottom of the cut is flat.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_846.html">
+          CH06SR_846
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_846" class="xmi_field">
+         <li>
+          <span class="data">
+           The dimensions of this cut are difficult to approximate because at first this and 0855 were thought to be the same. However, it is approximately 50 cm (NE-SW) X 35 cm (NW-SE) and ranging from 20-30 cm in depth. The sides are steep to sloping and the floor/surface is sloping into the cut made by 0856.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_851.html">
+          CH06SR_851
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_851" class="xmi_field">
+         <li>
+          <span class="data">
+           The dimensions at surface are 108 cm (NE-SW) and 80 cm (NW-SE), though this latter will change, increasing if/when we excavate Area 3 to its depth. The cut reached 85-90 cm in depth and has steep walls with a slightly conical shape. There is a circular cut 35-38 cm in diameter and 12 cm in depth in the bottom of the pit (see context sheet sketch 0850). The bottom of this additional cut is relatively flat.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_854.html">
+          CH06SR_854
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_854" class="xmi_field">
+         <li>
+          <span class="data">
+           The dimensions at the surface [of bedrock] of cut are approximately 65 cm (NE-SW) X 65 cm (NW-SE) and 25 cm in depth. The sides are sloping and the shape of the cut is conical. The cut is higher on the N/NW edge and is several centimeters lower on the South edge.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_856.html">
+          CH06SR_856
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_856" class="xmi_field">
+         <li>
+          <span class="data">
+           Well formed circular (70 X 70 cm) cut that is approximately 25-30 cm in depth. Eroded bedrock is around the entire edge except for the Western, not coincidently where 0845/0846 was situated. The walls are sloping to heavily sloping, but the bottom is relatively flat.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_860.html">
+          CH06SR_860
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_860" class="xmi_field">
+         <li>
+          <span class="data">
+           A shallow circular cut approximately 84 cm (NE-SW) and not completely sure about (NW-SE) but judging by the shape and form it is likely also close to 84 cm. The cut is approximately 15 cm in depth with a somewhat circular cut (approximately 28-30 cm in diameter) in the SE part that extends another 10 cm in depth.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_861.html">
+          CH06SR_861
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_861" class="xmi_field">
+         <li>
+          <span class="data">
+           At definition the dimensions are approximately 60 X 60 cm and 25 cm in depth. The fill was a dark grayish brown soil with very few artifacts (only ceramics and bone) present. The sides are steep and the bottom is uneven. There is a cut stone (looks like a [smaller] stone slab 0666) that extends over the top of the fill.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_862.html">
+          CH06SR_862
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_862" class="xmi_field">
+         <li>
+          <span class="data">
+           The cut is 60 cm (NW-SE) X 65 cm (NE-SW) and 25 cm in depth. The walls are steep and the bottom of the cut is uneven.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_866.html">
+          CH06SR_866
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_866" class="xmi_field">
+         <li>
+          <span class="data">
+           The cut is square-ish in shape, 48 cm (NE-SW) X 56 cm (NW-SE) and 14 cm in depth. The sides are slight off [in other words, not quite] parallel to walls 50 and 296. The walls are steep to gently sloping (depending on the location) and the floor is relatively flat.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_870.html">
+          CH06SR_870
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_870" class="xmi_field">
+         <li>
+          <span class="data">
+           The cut is circular while paralleling wall 0693 and approximately 75 cm, then as it turns and parallels wall 0265 it straightens and becomes less pronounced (running straight for approximately 50 cm). The cut is approximately 18-20 cm at its greatest depth and is no longer visible as it reaches the area of wall (265) foundation trench 0763.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_912.html">
+          CH06SR_912
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_912" class="xmi_field">
+         <li>
+          <span class="data">
+           Began as a small pit, but after further definition became a very large pit in the center of Area 3 courtyard. The dimensions are approximately 1.9 M (NE-SW) X 2.1 M (NW-SE) and 10-15 cm in depth.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_916.html">
+          CH06SR_916
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_916" class="xmi_field">
+         <li>
+          <span class="data">
+           Fragmentary remains of dry-stone wall with mud chinking in courtyard, near NE section wall; consists of one course, two rough faces in medium-sized irregular field stones; N end is squared, may mark a corner or intersection with another wall, now absent; wall rests on a layer of soil, associated use surface not noted
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_922.html">
+          CH06SR_922
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_922" class="xmi_field">
+         <li>
+          <span class="data">
+           Very tenuous remains of a wall (?) next to the pit next to the cistern; only one course of dry stone with mud and rubble chinking preserved, perhaps at the conrer of the wall (a large block with a slightly more regular corner might have served as a quoin) -- this wall sits on 929 and was covered by 883, was probably cut by 943 (but if corner, outside face is preserved on that side); 60cm long by ca. 45cm wide
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_928.html">
+          CH06SR_928
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_928" class="xmi_field">
+         <li>
+          <span class="data">
+           The shape of the cut is circular and the dimensions are approximately 1.2 M in diameter, although the cut extends into the profile therefore it is actually larger. The depth of the cut is approximately 50 cm and the walls are steep and the bottom is relatively  flat.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_931.html">
+          CH06SR_931
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_931" class="xmi_field">
+         <li>
+          <span class="data">
+           Circular/conical cut at E corner of cut 913, partly in bedrock, ca. 90 cm diameter at the top edge, ca. 50 cm deep; at bottom, where cut intersects with square cut, there is a hard, bedrock-live material - although this might be cut by 931, seems more likely that this was packing on which a vessel in the circular cut sat.
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_932.html">
+          CH06SR_932
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_932" class="xmi_field">
+         <li>
+          <span class="data">
+           Very hard-packed cluster of small (ca. 10 cm), irregular stones apparently bonded with lime mortar, roughly along the line of bedrock cut 942 and filling its N end, roughly parallel to 296; stones are set in no apparent order, and there is some soil matrix (not entirely masonry) -- ca. 45cm wide by 1.2m long
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_934.html">
+          CH06SR_934
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_934" class="xmi_field">
+         <li>
+          <span class="data">
+           Flimsy, irregular wall or screen in the shape of a P with the loop facing NW, occupying the N half of cut 913; the long side bisects the cut at roughly right angles; wall is constructed of small to medium irregular stones that appear to be mortared together, no clear faces; stones and shells found among them show evidence of high-temperature fire
+          </span>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <h5 style="width: 100%">
+         Context:
+         <a href="../cxt_cd/CH06SR_999.html">
+          CH06SR_999
+         </a>
+        </h5>
+        <ul id="fields-for-CH06SR_999" class="xmi_field">
+         <li>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
+     <div id="gph_boolframe_frame" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        GIS Status
+       </h4>
+      </div>
+      <div id="div-drw_digitized" class="frm_subform">
+       <ul>
+        <li class="row">
+         <label class="form_label">
+          Digitized
+         </label>
+         <img src="../skins/arkologik/images/onoff/chk_na.png" alt="on/off_switch" />
+        </li>
+       </ul>
+      </div>
+      <div id="div-drw_mapped" class="frm_subform">
+       <ul>
+        <li class="row">
+         <label class="form_label">
+          Mapped
+         </label>
+         <img src="../skins/arkologik/images/onoff/chk_na.png" alt="on/off_switch" />
+        </li>
+       </ul>
+      </div>
+      <div id="div-drw_georeferenced" class="frm_subform">
+       <ul>
+        <li class="row">
+         <label class="form_label">
+          Geo-Referenced
+         </label>
+         <img src="../skins/arkologik/images/onoff/chk_na.png" alt="on/off_switch" />
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div id="drw_events" class="mc_subform">
+      <div class="sf_nav">
+       <h4>
+        Events
+       </h4>
+      </div>
+      <ul id="events" class="hz_list">
+       <li>
+        <h5>
+         Illustrator
+        </h5>
+        <h5>
+         Drawn On
+        </h5>
+        <span class="data">
+         25-7-2006
+        </span>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- end MAIN -->
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../micro_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../micro_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end WRAPPER -->
+  </div>
+ </body>
+</html>
