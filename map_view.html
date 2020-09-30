@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="skins/arkologik/stylesheets/ark_main.css" />
   <link rel="stylesheet" href="skins/arkologik/stylesheets/ark_main_responsive.css" />
   <link href="skins/arkologik/stylesheets/colorbox.css" type="text/css" rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  <script src="lib/js/jquery.js">
   </script>
   <!--[if IE]&gt;&lt;script src="lib/js/ie.js"&gt;&lt;/script&gt;&lt;![endif]-->
   <script type="text/javascript" src="lib/js/jquery.colorbox.js">
@@ -148,7 +148,7 @@
             }
         });
         layers.reverse();
-        for (var i=0; i&lt;layers.length; i++){
+        for (var i=0; i<layers.length; i++){
             list.appendChild(layers[i]);
         }
         
@@ -251,7 +251,7 @@ function themeatiseThis(ark_json,req_field){
         if (i.get('selectable')){
             console.log(i.get('name'));
             var features = i.getSource().getFeatures();
-            for ( i=0; i &lt; features.length; i++) {
+            for ( i=0; i < features.length; i++) {
                 var feature_id = features[i].getId();
                 console.log(features[i].get('ark_id'));
                 if (features[i].get('ark_id') == null){
@@ -338,7 +338,7 @@ $(document).ready(function(){
             }
         }
         rulesarr.sort();
-        for (i = 0; i &lt; rulesarr.length; i++) {
+        for (i = 0; i < rulesarr.length; i++) {
             var rule = rules[rulesarr[i]];
             shape = makeShape(rule);
             legenditem = document.createElement('li');
@@ -358,7 +358,7 @@ $(document).ready(function(){
                     map1.getLayers().forEach(function(i,e,a){
                         if (i.get('selectable')){
                             var features = i.getSource().getFeatures();
-                            for ( i=0; i &lt; features.length; i++) {
+                            for ( i=0; i < features.length; i++) {
                                 var feature_id = features[i].getId();
                                 var ark_id = features[i].get('ark_id').toUpperCase();
                                 if (json_array.hasOwnProperty(ark_id) && json_array[ark_id].hasOwnProperty(req_field)) {
@@ -547,7 +547,7 @@ document.getElementById('export-png').addEventListener('click', function() {
                 console.log(canvas);
                 console.log(canvas.width);
 
-              if (canvas.width &gt; 0) {
+              if (canvas.width > 0) {
                 var opacity = canvas.parentNode.style.opacity;
                 mapContext.globalAlpha = opacity === '' ? 1 : Number(opacity);
                 //var transform = canvas.style.transform;

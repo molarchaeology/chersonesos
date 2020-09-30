@@ -3221,6 +3221,7 @@ div#results_nav ul {
     float:left;
     overflow: hidden;
     margin: 8px 20px 0 2px;
+    display: none;
 }
 div#results_nav ul li {
     float: left;
