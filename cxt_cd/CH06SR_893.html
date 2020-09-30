@@ -275,7 +275,7 @@
             $(document).ready( function() {
                     console.log('loading');
                     $.getJSON(
-                        'https://ica.tacc.utexas.edu/chersonesos/ark/itemlist/cxt_cd',
+                        '../itemlist/cxt_cd',
                         function(availablekeys) {
                             $( "#jumper_input" ).autocomplete({
                               source: availablekeys["itemkeys"],
@@ -1079,7 +1079,7 @@ document.getElementById('export-png').addEventListener('click', function() {
     var layer2Source = new ol.source.Vector({
         format: new ol.format.GeoJSON(),
         loader: function(extent, resolution, projection) {
-            var url = 'https://ica.tacc.utexas.edu/chersonesos/ark/data/mapping/cxt_pg.geojson';
+            var url = '../data/mapping/cxt_pg.geojson';
             jQuery.ajax({
                 url: url,
                 contentType: 'text/xml',
@@ -1178,7 +1178,7 @@ document.getElementById('export-png').addEventListener('click', function() {
     map1.addLayer(layer2);layer2.setVisible(true);layer2.setVisible(true);
     var layer1Source = new ol.source.Vector({
         projection: '',
-        url: 'https://ica.tacc.utexas.edu/chersonesos/ark/data/mapping/final_plan.geojson',
+        url: '../data/mapping/final_plan.geojson',
         format: new ol.format.GeoJSON() });
     
     var layer1 = new ol.layer.Vector({ source: layer1Source });
@@ -1323,7 +1323,7 @@ layer1.setStyle(function(feature, resolution) {
     map1.addLayer(layer1);layer1.setVisible(true);
     var layerconf_field_cxt_schmSource = new ol.source.Vector({
         projection: 'epsg:32636',
-        url: 'https://ica.tacc.utexas.edu/chersonesos/ark/data/mapping/cxt_schm.geojson',
+        url: '../data/mapping/cxt_schm.geojson',
         format: new ol.format.GeoJSON() });
     
     var layerconf_field_cxt_schm = new ol.layer.Vector({ source: layerconf_field_cxt_schmSource });
