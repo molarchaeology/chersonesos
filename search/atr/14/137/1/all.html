@@ -1,0 +1,5462 @@
+<!DOCTYPE html 
+
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <!-- title -->
+  <title>
+   Chersonesos - Search Page
+  </title>
+  <!-- meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- stylesheets -->
+  <link href="../../../../../skins/arkologik/stylesheets/ark_main.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="../../../../../skins/arkologik/stylesheets/ark_main_print.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="../../../../../skins/arkologik/stylesheets/lightbox.css" type="text/css" rel="stylesheet" />
+  <link href="../../../../../skins/arkologik/images/ark_favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="../../../../../lib/js/ol3/ol.css" />
+  <link rel="stylesheet" href="../../../../../skins/arkologik/stylesheets/map_view.css" />
+  <link rel="stylesheet" href="../../../../../skins/arkologik/stylesheets/colorbox.css" />
+  <!-- javascript libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="../../../../../lib/js/jquery-ui.js">
+  </script>
+  <script type="text/javascript" src="../../../../../lib/js/php.js">
+  </script>
+  <script type="text/javascript" src="../../../../../lib/js/jquery.colorbox.js">
+  </script>
+  <!-- ARK javascript -->
+  <script type="text/javascript" src="../../../../../js/js_functions.js">
+  </script>
+  <script type="text/javascript" src="../../../../../js/common.js">
+  </script>
+  <script type="text/javascript" src="../../../../../js/livesearch.js">
+  </script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+            // drawer toggle script
+            $(".dr_toggle").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+            $("ul#ftr_options .save").click(function(){
+                // console.log("test");
+                var $marginLefty = $(".dr");
+                $marginLefty.animate({
+                    marginLeft: parseInt($marginLefty.css('marginLeft'),10) == 0 ?
+                        $marginLefty.outerWidth() :
+                        0
+                });
+                $("#filter_panel").toggleClass('dr_shadows');
+                $("div.dr").toggleClass('dr_shadows');
+                return false;
+            });
+        });
+
+        $(window).load(function(){
+            // set heights in left panel
+            var main_ht = $("#main").height();
+            var lpanel_ht = $("#lpanel").height();
+            var largest_child = 0;
+            $('#lpanel').children().each(function() {
+                var ht = $(this).height();
+                if (ht > largest_child) {
+                    largest_child = ht;
+                };
+            });
+            var largest = max(main_ht, largest_child, lpanel_ht);
+            console.log ("largest: " + largest);
+            // set all the heights to the same thing
+            $('#lpanel').children().each(function() {
+                $(this).height(largest);
+            });
+            $('#lpanel').height(largest);
+            $('#main').height(largest);
+        });
+  </script>
+ </head>
+ <body>
+  <!-- THE CONTENT WRAPPER -->
+  <div id="wrapper" class="wrp_results">
+   <!-- HEADER -->
+   <div id="hdr-print">
+    <img src="../../../../../skins/arkologik/images/logo.png" alt="logo" />
+   </div>
+   <div id="hdr">
+    <a href="../../../../../user_home.html">
+     <!-- &lt;img src="skins/arkologik/images/logo.png" alt="logo"  /&gt; -->
+    </a>
+    <div id="hdr-tools">
+     <div id="version">
+      v1.1
+     </div>
+     <!-- user info -->
+     <div id="user-info">
+      <span>
+       Guest User
+      </span>
+      <span>
+       <a href="../../../../../data_view.html">
+        English
+       </a>
+      </span>
+      <span>
+       <a href="../../../../../data_view.html">
+        Russian
+       </a>
+      </span>
+      <span>
+       <a href="../../../../../help.html">
+        Help
+       </a>
+      </span>
+      <span class="noborder">
+       <a href="../../../../../index.html">
+        Logout
+       </a>
+      </span>
+     </div>
+     <div id="search">
+      <form method="get" class="searchbox" action="/chersonesos/ark/data_view.php">
+       <fieldset>
+        <label>
+         Search&nbsp;
+        </label>
+        <input type="text" name="src" />
+        <input type="hidden" name="ftr_mode" value="basic" />
+        <input type="hidden" name="disp_mode" value="chat" />
+        <input type="hidden" name="ftype" value="ftx" />
+        <input type="hidden" name="ftr_id" value="searchbox" />
+        <input type="hidden" name="reset" value="1" />
+        <button type="submit">
+         go
+        </button>
+       </fieldset>
+      </form>
+     </div>
+    </div>
+    <!-- DYNAMIC NAVIGATION -->
+    <div id="navcontainer">
+     <ul id="navlist">
+      <li>
+       <a href="../../../../../user_home.html">
+        home
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../micro_view.html">
+        record view
+       </a>
+      </li>
+      <li id="active">
+       <a href="../../../../../data_view.html">
+        search
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../map_view.html">
+        map
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <!-- The LEFT PANEL -->
+   <div id="lpanel">
+    <div id="filter_panel">
+     <h1>
+      Search
+     </h1>
+     <ul id="ftr_options">
+      <li>
+       <a href="../../../../../data_view.html" class="clear_ftr" title="Clear all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../data_view.html" class="refresh" title="Rerun all filters">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../overlay_holder.html" class="save" title="Save filter set">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Filters
+      </h4>
+     </div>
+     <ul id="active_filters">
+      <li class="active_filter">
+       <label>
+        Sample Type -
+       </label>
+       <label>
+        Palaeobotanical
+       </label>
+       <br />
+       <span class="del_op">
+        <a href="../../../../../data_view.html">
+         <img src="../../../../../skins/arkologik/images/plusminus/bigminus.png" alt="[-]" class="med" />
+        </a>
+       </span>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Records
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../../search/key/1/all.html">
+         Contexts
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/16/all.html">
+         Context Groups
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/3/all.html">
+         Site Photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/7/2.html">
+         People
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/9/all.html">
+         Samples
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/11/all.html">
+         Special Finds
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/12/all.html">
+         Geo-photos
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/15/all.html">
+         Photo Modeller Project Records
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/17/all.html">
+         Drawings
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/18/all.html">
+         Topo Surfaces
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/19/all.html">
+         Microwear Analysis
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/key/20/all.html">
+         Skeletal Remains
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div class="sf_nav">
+      <h4>
+       Search Criteria
+      </h4>
+     </div>
+     <ul id="dvlp_filters" class="ftr_list">
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/54/fauxdex.html">
+         Find Class
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/16/fauxdex.html">
+         Find Material
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/8/fauxdex.html">
+         Period
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/26/fauxdex.html">
+         Area (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/25/fauxdex.html">
+         Room (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/13/fauxdex.html">
+         Phase (Contexts)
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/14/fauxdex.html">
+         Sample Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/34/fauxdex.html">
+         Faunal Type
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/49/fauxdex.html">
+         Bird Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/50/fauxdex.html">
+         Fish Species
+        </a>
+       </h4>
+      </li>
+      <li>
+       <h4>
+        <a href="../../../../../search/atr/21/fauxdex.html">
+         Plant Species
+        </a>
+       </h4>
+      </li>
+     </ul>
+     <div id="ftr_mode_nav">
+      <a href="../../../../../data_view.html">
+       Advanced options
+      </a>
+     </div>
+    </div>
+    <div id="drawer_1" class="dr">
+     <h1>
+      Save/Saved
+      <a href="../../../../../#.html" class="dr_toggle">
+       [&lt;&lt;]
+      </a>
+     </h1>
+     <ul>
+      <li id="save_ftr">
+       <label>
+        save
+       </label>
+       <form method="get" action="/chersonesos/ark/data_view.php">
+        <input type="hidden" name="submiss_serial" value="" />
+        <input type="hidden" name="output_mode" value="table" />
+        <input type="hidden" name="saveftr" value="set" />
+        <span>
+         <span class="input">
+          <input type="text" name="nname" value="" style="width:35%" />
+         </span>
+         <span class="input">
+          <button type="submit">
+           save
+          </button>
+         </span>
+        </span>
+       </form>
+      </li>
+     </ul>
+     <div id="dvlp_saved_filters" class="saved_ftr">
+     </div>
+    </div>
+   </div>
+   <!-- THE MAIN AREA -->
+   <div id="main" class="main_results">
+    <div id="results_nav">
+     <label>
+      table
+     </label>
+     <ul id="tools">
+      <li>
+       <a href="../../../../../overlay_holder.html" class="gears colorbox" title="Configure Fields">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_views">
+      <li>
+       <a href="../../../../../data_view.html" class="text" title="View as Text">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../data_view.html" class="table" title="View as Table">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../data_view.html" class="thumb" title="View as Thumbnails">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../data_view.html" class="map" title="View as Map">
+        &nbsp;
+       </a>
+      </li>
+      <li>
+       <a href="../../../../../resultsmicro_view.html" class="printall" title="View Full Records (Print View)" target="mywin">
+        &nbsp;
+       </a>
+      </li>
+     </ul>
+     <ul id="result_feeds">
+      <li>
+       <a href="../../../../../overlay_holder.html" class=" colorbox" title="RSS">
+        RSS
+       </a>
+      </li>
+     </ul>
+     <ul id="result_downloads">
+      <li>
+       <a href="../../../../../overlay_holder.html" class=" colorbox" title="Export to CSV">
+        CSV
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="result_tbl">
+     <table class="result_tbl">
+      <th>
+       <a href="../../../../../data_view.html">
+        Sample
+       </a>
+      </th>
+      <th>
+       <a href="../../../../../data_view.html">
+        Description
+       </a>
+      </th>
+      <th>
+       Options
+      </th>
+      <tr id="smp_cd_CH05SR_117" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_117.html" class="itemkey_link">
+          CH05SR_117
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_117.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_118" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_118.html" class="itemkey_link">
+          CH05SR_118
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_118.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_119" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_119.html" class="itemkey_link">
+          CH05SR_119
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_119.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_120" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_120.html" class="itemkey_link">
+          CH05SR_120
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_120.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_121" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_121.html" class="itemkey_link">
+          CH05SR_121
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_121.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_122" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_122.html" class="itemkey_link">
+          CH05SR_122
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_122.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_123" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_123.html" class="itemkey_link">
+          CH05SR_123
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_123.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_124" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_124.html" class="itemkey_link">
+          CH05SR_124
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Flotation Sample from fill of well
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_124.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_188" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_188.html" class="itemkey_link">
+          CH05SR_188
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_188.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_189" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_189.html" class="itemkey_link">
+          CH05SR_189
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_189.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_190" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_190.html" class="itemkey_link">
+          CH05SR_190
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_190.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_191" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_191.html" class="itemkey_link">
+          CH05SR_191
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_191.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_192" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_192.html" class="itemkey_link">
+          CH05SR_192
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_192.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_237" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_237.html" class="itemkey_link">
+          CH05SR_237
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from well in NW side of courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_237.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_239" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_239.html" class="itemkey_link">
+          CH05SR_239
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_239.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_240" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_240.html" class="itemkey_link">
+          CH05SR_240
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_240.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_241" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_241.html" class="itemkey_link">
+          CH05SR_241
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_241.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_242" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_242.html" class="itemkey_link">
+          CH05SR_242
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_242.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_243" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_243.html" class="itemkey_link">
+          CH05SR_243
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_243.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_244" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_244.html" class="itemkey_link">
+          CH05SR_244
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_244.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_245" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_245.html" class="itemkey_link">
+          CH05SR_245
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_245.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_246" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_246.html" class="itemkey_link">
+          CH05SR_246
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_246.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_247" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_247.html" class="itemkey_link">
+          CH05SR_247
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_247.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_248" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_248.html" class="itemkey_link">
+          CH05SR_248
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_248.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_249" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_249.html" class="itemkey_link">
+          CH05SR_249
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_249.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_250" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_250.html" class="itemkey_link">
+          CH05SR_250
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_250.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_251" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_251.html" class="itemkey_link">
+          CH05SR_251
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_251.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_252" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_252.html" class="itemkey_link">
+          CH05SR_252
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_252.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_253" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_253.html" class="itemkey_link">
+          CH05SR_253
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_253.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_254" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_254.html" class="itemkey_link">
+          CH05SR_254
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_254.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_255" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_255.html" class="itemkey_link">
+          CH05SR_255
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_255.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_256" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_256.html" class="itemkey_link">
+          CH05SR_256
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_256.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_257" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_257.html" class="itemkey_link">
+          CH05SR_257
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_257.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_258" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_258.html" class="itemkey_link">
+          CH05SR_258
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_258.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_259" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_259.html" class="itemkey_link">
+          CH05SR_259
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_259.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_299" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_299.html" class="itemkey_link">
+          CH05SR_299
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_299.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_300" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_300.html" class="itemkey_link">
+          CH05SR_300
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_300.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_314" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_314.html" class="itemkey_link">
+          CH05SR_314
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_314.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_324" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_324.html" class="itemkey_link">
+          CH05SR_324
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_324.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_325" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_325.html" class="itemkey_link">
+          CH05SR_325
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_325.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_326" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_326.html" class="itemkey_link">
+          CH05SR_326
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample (1.50m from point 17.2385), from fill of well
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_326.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_329" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_329.html" class="itemkey_link">
+          CH05SR_329
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_329.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_333" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_333.html" class="itemkey_link">
+          CH05SR_333
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_333.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_334" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_334.html" class="itemkey_link">
+          CH05SR_334
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from room 32
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_334.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_338" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_338.html" class="itemkey_link">
+          CH05SR_338
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_338.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_339" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_339.html" class="itemkey_link">
+          CH05SR_339
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from cistern/well (2.20m from point 17.2385)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_339.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_342" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_342.html" class="itemkey_link">
+          CH05SR_342
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_342.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_343" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_343.html" class="itemkey_link">
+          CH05SR_343
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_343.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_344" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_344.html" class="itemkey_link">
+          CH05SR_344
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_344.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_345" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_345.html" class="itemkey_link">
+          CH05SR_345
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_345.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_346" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_346.html" class="itemkey_link">
+          CH05SR_346
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_346.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_347" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_347.html" class="itemkey_link">
+          CH05SR_347
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_347.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_348" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_348.html" class="itemkey_link">
+          CH05SR_348
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_348.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_349" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_349.html" class="itemkey_link">
+          CH05SR_349
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_349.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_350" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_350.html" class="itemkey_link">
+          CH05SR_350
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from fill of well
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_350.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_354" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_354.html" class="itemkey_link">
+          CH05SR_354
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_354.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_357" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_357.html" class="itemkey_link">
+          CH05SR_357
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_357.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_358" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_358.html" class="itemkey_link">
+          CH05SR_358
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_358.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_359" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_359.html" class="itemkey_link">
+          CH05SR_359
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_359.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_360" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_360.html" class="itemkey_link">
+          CH05SR_360
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_360.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_361" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_361.html" class="itemkey_link">
+          CH05SR_361
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_361.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_362" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_362.html" class="itemkey_link">
+          CH05SR_362
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_362.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_363" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_363.html" class="itemkey_link">
+          CH05SR_363
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_363.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_364" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_364.html" class="itemkey_link">
+          CH05SR_364
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_364.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_365" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_365.html" class="itemkey_link">
+          CH05SR_365
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_365.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_366" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_366.html" class="itemkey_link">
+          CH05SR_366
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from room 37
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_366.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_367" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_367.html" class="itemkey_link">
+          CH05SR_367
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from room 37
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_367.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_368" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_368.html" class="itemkey_link">
+          CH05SR_368
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample (Sea Grass) from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_368.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_370" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_370.html" class="itemkey_link">
+          CH05SR_370
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_370.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_372" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_372.html" class="itemkey_link">
+          CH05SR_372
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_372.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_374" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_374.html" class="itemkey_link">
+          CH05SR_374
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from main street
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_374.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_377" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_377.html" class="itemkey_link">
+          CH05SR_377
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_377.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_378" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_378.html" class="itemkey_link">
+          CH05SR_378
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_378.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_379" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_379.html" class="itemkey_link">
+          CH05SR_379
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_379.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_380" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_380.html" class="itemkey_link">
+          CH05SR_380
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_380.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_383" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_383.html" class="itemkey_link">
+          CH05SR_383
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_383.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_384" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_384.html" class="itemkey_link">
+          CH05SR_384
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_384.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_389" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_389.html" class="itemkey_link">
+          CH05SR_389
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_389.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_390" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_390.html" class="itemkey_link">
+          CH05SR_390
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_390.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_391" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_391.html" class="itemkey_link">
+          CH05SR_391
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_391.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_392" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_392.html" class="itemkey_link">
+          CH05SR_392
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_392.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_393" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_393.html" class="itemkey_link">
+          CH05SR_393
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_393.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_394" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_394.html" class="itemkey_link">
+          CH05SR_394
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_394.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_395" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_395.html" class="itemkey_link">
+          CH05SR_395
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_395.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_396" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_396.html" class="itemkey_link">
+          CH05SR_396
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_396.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_397" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_397.html" class="itemkey_link">
+          CH05SR_397
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_397.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_398" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_398.html" class="itemkey_link">
+          CH05SR_398
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_398.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_399" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_399.html" class="itemkey_link">
+          CH05SR_399
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_399.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_400" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_400.html" class="itemkey_link">
+          CH05SR_400
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_400.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_401" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_401.html" class="itemkey_link">
+          CH05SR_401
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_401.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_402" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_402.html" class="itemkey_link">
+          CH05SR_402
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_402.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_403" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_403.html" class="itemkey_link">
+          CH05SR_403
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_403.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_420" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_420.html" class="itemkey_link">
+          CH05SR_420
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_420.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_423" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_423.html" class="itemkey_link">
+          CH05SR_423
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_423.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_424" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_424.html" class="itemkey_link">
+          CH05SR_424
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_424.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_426" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_426.html" class="itemkey_link">
+          CH05SR_426
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_426.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_427" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_427.html" class="itemkey_link">
+          CH05SR_427
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_427.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_435" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_435.html" class="itemkey_link">
+          CH05SR_435
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_435.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_436" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_436.html" class="itemkey_link">
+          CH05SR_436
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_436.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_438" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_438.html" class="itemkey_link">
+          CH05SR_438
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_438.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_439" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_439.html" class="itemkey_link">
+          CH05SR_439
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_439.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_440" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_440.html" class="itemkey_link">
+          CH05SR_440
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_440.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_441" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_441.html" class="itemkey_link">
+          CH05SR_441
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_441.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_442" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_442.html" class="itemkey_link">
+          CH05SR_442
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_442.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_443" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_443.html" class="itemkey_link">
+          CH05SR_443
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample in room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_443.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_444" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_444.html" class="itemkey_link">
+          CH05SR_444
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_444.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_445" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_445.html" class="itemkey_link">
+          CH05SR_445
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_445.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_446" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_446.html" class="itemkey_link">
+          CH05SR_446
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_446.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_448" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_448.html" class="itemkey_link">
+          CH05SR_448
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from pit in room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_448.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_449" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_449.html" class="itemkey_link">
+          CH05SR_449
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from pit in room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_449.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_450" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_450.html" class="itemkey_link">
+          CH05SR_450
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from pit in room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_450.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_451" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_451.html" class="itemkey_link">
+          CH05SR_451
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from pit in room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_451.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_452" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_452.html" class="itemkey_link">
+          CH05SR_452
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_452.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_453" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_453.html" class="itemkey_link">
+          CH05SR_453
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaebotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_453.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_454" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_454.html" class="itemkey_link">
+          CH05SR_454
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_454.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_455" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_455.html" class="itemkey_link">
+          CH05SR_455
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_455.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_456" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_456.html" class="itemkey_link">
+          CH05SR_456
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_456.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_457" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_457.html" class="itemkey_link">
+          CH05SR_457
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_457.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_458" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_458.html" class="itemkey_link">
+          CH05SR_458
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_458.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_459" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_459.html" class="itemkey_link">
+          CH05SR_459
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_459.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_464" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_464.html" class="itemkey_link">
+          CH05SR_464
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from ceramic vessel in room 30
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_464.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_467" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_467.html" class="itemkey_link">
+          CH05SR_467
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_467.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_468" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_468.html" class="itemkey_link">
+          CH05SR_468
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_468.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_469" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_469.html" class="itemkey_link">
+          CH05SR_469
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_469.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_470" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_470.html" class="itemkey_link">
+          CH05SR_470
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_470.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_471" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_471.html" class="itemkey_link">
+          CH05SR_471
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_471.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_472" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_472.html" class="itemkey_link">
+          CH05SR_472
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_472.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_473" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_473.html" class="itemkey_link">
+          CH05SR_473
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_473.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_474" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_474.html" class="itemkey_link">
+          CH05SR_474
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_474.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_475" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_475.html" class="itemkey_link">
+          CH05SR_475
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_475.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_476" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_476.html" class="itemkey_link">
+          CH05SR_476
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample - ACCIDENTAL DUPLICATE (this sample is probably 481)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_476.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_477" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_477.html" class="itemkey_link">
+          CH05SR_477
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample - ACCIDENTAL DUPLICATE (this sample is probably 482)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_477.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_478" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_478.html" class="itemkey_link">
+          CH05SR_478
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample - ACCIDENTAL DUPLICATE (this sample is probably 483)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_478.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_479" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_479.html" class="itemkey_link">
+          CH05SR_479
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample - ACCIDENTAL DUPLICATE (this sample is probably 484)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_479.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_481" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_481.html" class="itemkey_link">
+          CH05SR_481
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_481.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_482" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_482.html" class="itemkey_link">
+          CH05SR_482
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_482.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_483" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_483.html" class="itemkey_link">
+          CH05SR_483
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_483.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_484" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_484.html" class="itemkey_link">
+          CH05SR_484
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_484.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_485" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_485.html" class="itemkey_link">
+          CH05SR_485
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_485.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_486" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_486.html" class="itemkey_link">
+          CH05SR_486
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_486.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_487" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_487.html" class="itemkey_link">
+          CH05SR_487
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_487.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_488" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_488.html" class="itemkey_link">
+          CH05SR_488
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_488.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_489" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_489.html" class="itemkey_link">
+          CH05SR_489
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_489.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_490" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_490.html" class="itemkey_link">
+          CH05SR_490
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_490.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_491" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_491.html" class="itemkey_link">
+          CH05SR_491
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_491.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_492" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_492.html" class="itemkey_link">
+          CH05SR_492
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_492.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_493" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_493.html" class="itemkey_link">
+          CH05SR_493
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from S wing of room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_493.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_494" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_494.html" class="itemkey_link">
+          CH05SR_494
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from S wing of room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_494.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_496" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_496.html" class="itemkey_link">
+          CH05SR_496
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from main street
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_496.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_499" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_499.html" class="itemkey_link">
+          CH05SR_499
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample from 695, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_499.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_500" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_500.html" class="itemkey_link">
+          CH05SR_500
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, hearth 2, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_500.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_501" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_501.html" class="itemkey_link">
+          CH05SR_501
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_501.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_502" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_502.html" class="itemkey_link">
+          CH05SR_502
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_502.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_503" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_503.html" class="itemkey_link">
+          CH05SR_503
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_503.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_504" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_504.html" class="itemkey_link">
+          CH05SR_504
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_504.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_505" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_505.html" class="itemkey_link">
+          CH05SR_505
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_505.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH05SR_506" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH05SR_506.html" class="itemkey_link">
+          CH05SR_506
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         palaeobotanical sample, room 33
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH05SR_506.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_516" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_516.html" class="itemkey_link">
+          CH06SR_516
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31 point taken from topo_p, surf_num 2 (27jun06b, pt_id 1007)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_516.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_517" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_517.html" class="itemkey_link">
+          CH06SR_517
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_517.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_523" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_523.html" class="itemkey_link">
+          CH06SR_523
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_523.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_524" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_524.html" class="itemkey_link">
+          CH06SR_524
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_524.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_526" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_526.html" class="itemkey_link">
+          CH06SR_526
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_526.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_527" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_527.html" class="itemkey_link">
+          CH06SR_527
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_527.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_528" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_528.html" class="itemkey_link">
+          CH06SR_528
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_528.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_529" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_529.html" class="itemkey_link">
+          CH06SR_529
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_529.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_530" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_530.html" class="itemkey_link">
+          CH06SR_530
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_530.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_531" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_531.html" class="itemkey_link">
+          CH06SR_531
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, fill of a drain in Stenopos, 1st portion
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_531.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_532" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_532.html" class="itemkey_link">
+          CH06SR_532
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, fill of a drain in stenopos, 2nd portion
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_532.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_533" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_533.html" class="itemkey_link">
+          CH06SR_533
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, fill of a drain in Stenopos, 3rd portion
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_533.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_534" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_534.html" class="itemkey_link">
+          CH06SR_534
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, fill of a drain in Stenopos, 4th portion
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_534.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_535" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_535.html" class="itemkey_link">
+          CH06SR_535
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_535.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_536" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_536.html" class="itemkey_link">
+          CH06SR_536
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_536.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_537" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_537.html" class="itemkey_link">
+          CH06SR_537
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from rm. 31A
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_537.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_538" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_538.html" class="itemkey_link">
+          CH06SR_538
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from rm. 31A
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_538.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_539" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_539.html" class="itemkey_link">
+          CH06SR_539
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from rm. 31A
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_539.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_540" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_540.html" class="itemkey_link">
+          CH06SR_540
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_540.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_541" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_541.html" class="itemkey_link">
+          CH06SR_541
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_541.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_542" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_542.html" class="itemkey_link">
+          CH06SR_542
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_542.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_543" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_543.html" class="itemkey_link">
+          CH06SR_543
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_543.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_544" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_544.html" class="itemkey_link">
+          CH06SR_544
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_544.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_545" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_545.html" class="itemkey_link">
+          CH06SR_545
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_545.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_552" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_552.html" class="itemkey_link">
+          CH06SR_552
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_552.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_553" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_553.html" class="itemkey_link">
+          CH06SR_553
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 31a
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_553.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_559" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_559.html" class="itemkey_link">
+          CH06SR_559
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from R. 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_559.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_561" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_561.html" class="itemkey_link">
+          CH06SR_561
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 31, West Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_561.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_562" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_562.html" class="itemkey_link">
+          CH06SR_562
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 31, West Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_562.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_563" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_563.html" class="itemkey_link">
+          CH06SR_563
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical Sample from Room 31, West Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_563.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_564" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_564.html" class="itemkey_link">
+          CH06SR_564
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, E wing, room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_564.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_565" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_565.html" class="itemkey_link">
+          CH06SR_565
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, E wing, room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_565.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_568" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_568.html" class="itemkey_link">
+          CH06SR_568
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_568.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_569" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_569.html" class="itemkey_link">
+          CH06SR_569
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, SE part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_569.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_576" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_576.html" class="itemkey_link">
+          CH06SR_576
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, SE part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_576.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_577" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_577.html" class="itemkey_link">
+          CH06SR_577
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, SE part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_577.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_578" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_578.html" class="itemkey_link">
+          CH06SR_578
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, Room 31, East wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_578.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_584" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_584.html" class="itemkey_link">
+          CH06SR_584
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, NW portion  of Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_584.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_586" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_586.html" class="itemkey_link">
+          CH06SR_586
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, NW part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_586.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_587" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_587.html" class="itemkey_link">
+          CH06SR_587
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, NW part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_587.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_588" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_588.html" class="itemkey_link">
+          CH06SR_588
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, NW part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_588.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_590" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_590.html" class="itemkey_link">
+          CH06SR_590
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, NW part of room 38 (from shell)
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_590.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_594" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_594.html" class="itemkey_link">
+          CH06SR_594
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, room 31, E. wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_594.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_595" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_595.html" class="itemkey_link">
+          CH06SR_595
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, room 31, E. wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_595.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_596" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_596.html" class="itemkey_link">
+          CH06SR_596
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, room 31,W. wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_596.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_597" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_597.html" class="itemkey_link">
+          CH06SR_597
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, room 31, W. wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_597.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_598" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_598.html" class="itemkey_link">
+          CH06SR_598
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, room 31, W. wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_598.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_600" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_600.html" class="itemkey_link">
+          CH06SR_600
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, NW part of room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_600.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_636" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_636.html" class="itemkey_link">
+          CH06SR_636
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from the courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_636.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_637" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_637.html" class="itemkey_link">
+          CH06SR_637
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Paleobotanical sample from Room 38, NOT MAPPED
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_637.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_638" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_638.html" class="itemkey_link">
+          CH06SR_638
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from Room 31, West Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_638.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_639" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_639.html" class="itemkey_link">
+          CH06SR_639
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from Room 31, W. Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_639.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_640" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_640.html" class="itemkey_link">
+          CH06SR_640
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from Room 31, W. Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_640.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_641" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_641.html" class="itemkey_link">
+          CH06SR_641
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         paleobotanical sample from Room 31, W. Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_641.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_645" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_645.html" class="itemkey_link">
+          CH06SR_645
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical Sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_645.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_646" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_646.html" class="itemkey_link">
+          CH06SR_646
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_646.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_649" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_649.html" class="itemkey_link">
+          CH06SR_649
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, Room 31, East Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_649.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_650" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_650.html" class="itemkey_link">
+          CH06SR_650
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, Room 38, SE portion
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_650.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_652" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_652.html" class="itemkey_link">
+          CH06SR_652
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, Room 31, East Wing
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_652.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_700" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_700.html" class="itemkey_link">
+          CH06SR_700
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, courtyard, 3rd section
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_700.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_701" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_701.html" class="itemkey_link">
+          CH06SR_701
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, courtyard, 3rd section
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_701.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_702" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_702.html" class="itemkey_link">
+          CH06SR_702
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, courtyard, 3rd section
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_702.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_704" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_704.html" class="itemkey_link">
+          CH06SR_704
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, E wing, room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_704.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_705" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_705.html" class="itemkey_link">
+          CH06SR_705
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, E wing room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_705.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_706" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_706.html" class="itemkey_link">
+          CH06SR_706
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample. East wing Room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_706.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_707" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_707.html" class="itemkey_link">
+          CH06SR_707
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, East Wing, Room 31
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_707.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_708" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_708.html" class="itemkey_link">
+          CH06SR_708
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_708.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_712" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_712.html" class="itemkey_link">
+          CH06SR_712
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from fill of cut under chapel
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_712.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_713" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_713.html" class="itemkey_link">
+          CH06SR_713
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, Area 3, Courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_713.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_714" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_714.html" class="itemkey_link">
+          CH06SR_714
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample, Room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_714.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_721" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_721.html" class="itemkey_link">
+          CH06SR_721
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from courtyard
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_721.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_722" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_722.html" class="itemkey_link">
+          CH06SR_722
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_722.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_723" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_723.html" class="itemkey_link">
+          CH06SR_723
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_723.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_724" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_724.html" class="itemkey_link">
+          CH06SR_724
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_724.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+      <tr id="smp_cd_CH06SR_731" class="search_item">
+       <td>
+        <span class="data">
+         <a href="../../../../../smp_cd/CH06SR_731.html" class="itemkey_link">
+          CH06SR_731
+         </a>
+        </span>
+       </td>
+       <td>
+        <span class="data">
+         Palaeobotanical sample from room 38
+        </span>
+       </td>
+       <td>
+        <span class="options">
+         <a href="../../../../../smp_cd/CH06SR_731.html">
+          <img src="../../../../../skins/arkologik/images/plusminus/view.png" alt="view" class="med" title="View Record" />
+         </a>
+        </span>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div id="paging_nav">
+     <span class="info">
+      Total Results: &nbsp;232
+     </span>
+     <form method="get" id="perpage_selector" action="/chersonesos/ark/data_view.php">
+      <fieldset>
+       <label for="perpage">
+        Number of rows per page:
+       </label>
+       <input type="text" name="perpage" value="" class="perpage" />
+       <button type="submit">
+        go
+       </button>
+      </fieldset>
+     </form>
+    </div>
+   </div>
+   <!-- ARK FOOTER -->
+   <div id="ark_footer">
+    <div class="bt-nav">
+     <span>
+      Guest User
+     </span>
+     <span>
+      <a href="../../../../../data_view.html">
+       English
+      </a>
+     </span>
+     <span>
+      <a href="../../../../../data_view.html">
+       Russian
+      </a>
+     </span>
+     <span>
+      <a href="http://ark.lparchaeology.com/wiki">
+       Help
+      </a>
+     </span>
+     <span class="noborder">
+      <a href="../../../../../index.html">
+       Logout
+      </a>
+     </span>
+    </div>
+    <div class="credits">
+     <p>
+      Powered by
+     </p>
+     <span class="noborder">
+      <a title="ARK" href="http://ark.lparchaeology.com">
+       ARK
+      </a>
+     </span>
+    </div>
+   </div>
+   <!-- end content WRAPPER -->
+  </div>
+  <div class="editpanel">
+   <div id="edit_field_conf_field_description" class="edit_field_colorbox">
+    Editing Description for
+    <div class="edit_field_itemkeys">
+    </div>
+    <form action="" method="POST">
+     <input type="hidden" value="" name="multi_edit_itemvalues" class="multi_edit_itemkeys" />
+     <input type="hidden" value="update_multi" name="update_db" />
+     <input type="hidden" value="" name="submiss_serial" />
+     <input type="hidden" value="conf_field_description" name="field" />
+     <textarea id="description" name="description" rows="5" cols="12">
+     </textarea>
+     <input type="hidden" name="description_qtype" value="add" />
+     <button>
+      submit
+     </button>
+    </form>
+   </div>
+  </div>
+  <script>
+   var fields = ['conf_field_description'];console.log('conf_mac_table');
+  </script>
+  <script>
+   var fieldAlias = ['Description'];
+  </script>
+  <script type="text/javascript" src="../../../../../js/multi_edit.js">
+  </script>
+ </body>
+</html>
